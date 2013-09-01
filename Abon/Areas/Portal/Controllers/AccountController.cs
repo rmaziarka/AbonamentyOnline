@@ -11,7 +11,6 @@ using Abon.Dto.Portal.Account;
 using Abon.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
-using Services.Interfaces;
 
 namespace Abon.Areas.Portal.Controllers
 {
@@ -20,6 +19,7 @@ namespace Abon.Areas.Portal.Controllers
     {
         private IClaimService _claimService;
         private IUserService _userService { get; set; }
+
         public AccountController(IUserService userService, IClaimService claimService)
         {
             _userService = userService;
@@ -51,7 +51,7 @@ namespace Abon.Areas.Portal.Controllers
                 // Validate the user password
                 if (_userService.Validate(model.UserName, model.Password))
                 {
-                    _claimService.SignIn(HttpContext, model.UserName, model.RememberMe);
+                    _claimService.SignUserInApp(HttpContext, model.UserName, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }
             }
@@ -79,25 +79,15 @@ namespace Abon.Areas.Portal.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            try
+            var userId = Guid.NewGuid();
+            if (_userService.RegisterUser(model, userId))
             {
-                // Create a profile, password, and link the local login before signing in the user
-
-
-                var userId = Guid.NewGuid();
-                if (_userService.RegisterUser(model, userId))
-                {
-                    _claimService.SignIn(HttpContext, userId, false);
-                    return RedirectToAction("Index", "Home");
-                }
-
-                ModelState.AddModelError(String.Empty, "Failed to create login for: " + model.Name);
-
+                _claimService.SignUserInApp(HttpContext, userId, false);
+                return RedirectToAction("Index", "Home");
             }
-            catch (DbEntityValidationException e)
-            {
-                ModelState.AddModelError("", e.EntityValidationErrors.First().ValidationErrors.First().ErrorMessage);
-            }
+
+            ModelState.AddModelError(String.Empty, "Failed to create login for: " + model.Name);
+
 
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -121,7 +111,7 @@ namespace Abon.Areas.Portal.Controllers
                 message = ManageMessageId.RemoveLoginSuccess;
             }
 
-            return RedirectToAction("Manage", new { Message = message });
+            return RedirectToAction("Manage", new {Message = message});
         }
 
         //
@@ -129,11 +119,15 @@ namespace Abon.Areas.Portal.Controllers
         public async Task<ActionResult> Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : String.Empty;
-            string localUserName = await Logins.GetProviderKey(User.Identity.GetUserId(), IdentityConfig.LocalLoginProvider);
+                message == ManageMessageId.ChangePasswordSuccess
+                    ? "Your password has been changed."
+                    : message == ManageMessageId.SetPasswordSuccess
+                        ? "Your password has been set."
+                        : message == ManageMessageId.RemoveLoginSuccess
+                            ? "The external login was removed."
+                            : String.Empty;
+            string localUserName =
+                await Logins.GetProviderKey(User.Identity.GetUserId(), IdentityConfig.LocalLoginProvider);
             ViewBag.UserName = localUserName;
             ViewBag.HasLocalPassword = localUserName != null;
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -147,7 +141,8 @@ namespace Abon.Areas.Portal.Controllers
         public async Task<ActionResult> Manage(ManageUserViewModel model)
         {
             string userId = User.Identity.GetUserId();
-            string localUserName = await Logins.GetProviderKey(User.Identity.GetUserId(), IdentityConfig.LocalLoginProvider);
+            string localUserName =
+                await Logins.GetProviderKey(User.Identity.GetUserId(), IdentityConfig.LocalLoginProvider);
             bool hasLocalLogin = localUserName != null;
             ViewBag.HasLocalPassword = hasLocalLogin;
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -155,14 +150,16 @@ namespace Abon.Areas.Portal.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    bool changePasswordSucceeded = await ChangePassword(localUserName, model.OldPassword, model.NewPassword);
+                    bool changePasswordSucceeded =
+                        await ChangePassword(localUserName, model.OldPassword, model.NewPassword);
                     if (changePasswordSucceeded)
                     {
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
+                        return RedirectToAction("Manage", new {Message = ManageMessageId.ChangePasswordSuccess});
                     }
                     else
                     {
-                        ModelState.AddModelError(String.Empty, "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError(String.Empty,
+                            "The current password is incorrect or the new password is invalid.");
                     }
                 }
             }
@@ -184,7 +181,7 @@ namespace Abon.Areas.Portal.Controllers
                         if (await Secrets.Create(new UserSecret(localUserName, model.NewPassword)) &&
                             await Logins.Add(new UserLogin(userId, IdentityConfig.LocalLoginProvider, localUserName)))
                         {
-                            return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
+                            return RedirectToAction("Manage", new {Message = ManageMessageId.SetPasswordSuccess});
                         }
                         else
                         {
@@ -210,7 +207,8 @@ namespace Abon.Areas.Portal.Controllers
         public ActionResult ExternalLogin(string provider, string returnUrl)
         {
             // Request a redirect to the external login provider
-            return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { loginProvider = provider, ReturnUrl = returnUrl }));
+            return new ChallengeResult(provider,
+                Url.Action("ExternalLoginCallback", "Account", new {loginProvider = provider, ReturnUrl = returnUrl}));
         }
 
         //
@@ -234,23 +232,23 @@ namespace Abon.Areas.Portal.Controllers
 
             // Succeeded so we should be able to lookup the local user name and sign them in
             string providerKey = providerKeyClaim.Value;
-            string userId = await Logins.GetUserId(loginProvider, providerKey);
-            if (!String.IsNullOrEmpty(userId))
+            if (_userService.UserLoginExists(loginProvider, providerKey))
             {
-                _claimService.SignIn(HttpContext, Guid.Parse(userId), false);
+                _claimService.SignUserInApp(HttpContext, loginProvider, providerKey, false);
             }
             else
             {
-                // No local user for this account
                 if (User.Identity.IsAuthenticated)
                 {
-                    // If the current user is logged in, just add the new account
+                    var userId = _claimService.GetUserId(User.Identity);
+                    _userService.AddUserLoginToExistingUser(userId, loginProvider, providerKey);
                     await Logins.Add(new UserLogin(User.Identity.GetUserId(), loginProvider, providerKey));
                 }
                 else
                 {
                     ViewBag.ReturnUrl = returnUrl;
-                    return View("ExternalLoginConfirmation", new ExternalLoginConfirmationViewModel { UserName = id.Name, LoginProvider = loginProvider });
+                    return View("ExternalLoginConfirmation",
+                        new ExternalRegistrationDto { UserName = id.Name, LoginProvider = loginProvider });
                 }
             }
 
@@ -262,7 +260,8 @@ namespace Abon.Areas.Portal.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalRegistrationDto model,
+            string returnUrl)
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -277,25 +276,15 @@ namespace Abon.Areas.Portal.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                try
-                {
-                    // Create a local user and sign in
-                    var user = new User(model.UserName);
-                    if (await Users.Create(user) &&
-                        await Logins.Add(new UserLogin(user.Id, model.LoginProvider, id.FindFirstValue(ClaimTypes.NameIdentifier))))
-                    {
-                        _claimService.SignIn(HttpContext, Guid.Parse(user.Id), false);
-                        return RedirectToLocal(returnUrl);
-                    }
-                    else
-                    {
-                        return View("ExternalLoginFailure");
-                    }
-                }
-                catch (DbEntityValidationException e)
-                {
-                    ModelState.AddModelError("", e.EntityValidationErrors.First().ValidationErrors.First().ErrorMessage);
-                }
+
+
+                var providerKey = _claimService.FindFirstValue(id, ClaimTypes.NameIdentifier);
+
+                if (!_userService.ExternalRegistration(model, providerKey))
+                    return View("ExternalLoginFailure");
+
+                _claimService.SignUserInApp(HttpContext, model.LoginProvider, providerKey, false);
+                return RedirectToLocal(returnUrl);
             }
 
             ViewBag.ReturnUrl = returnUrl;
@@ -325,7 +314,10 @@ namespace Abon.Areas.Portal.Controllers
         public ActionResult ExternalLoginsList(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return (ActionResult)PartialView("_ExternalLoginsListPartial", new List<AuthenticationDescription>(HttpContext.GetExternalAuthenticationTypes()));
+            return
+                (ActionResult)
+                    PartialView("_ExternalLoginsListPartial",
+                        new List<AuthenticationDescription>(HttpContext.GetExternalAuthenticationTypes()));
         }
 
 
@@ -333,14 +325,15 @@ namespace Abon.Areas.Portal.Controllers
         public ActionResult RemoveAccountList()
         {
             return Task.Run(async () =>
-            {
-                var linkedAccounts = await Logins.GetLogins(User.Identity.GetUserId());
-                ViewBag.ShowRemoveButton = linkedAccounts.Count > 1;
-                return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
-            }).Result;
+                                  {
+                                      var linkedAccounts = await Logins.GetLogins(User.Identity.GetUserId());
+                                      ViewBag.ShowRemoveButton = linkedAccounts.Count > 1;
+                                      return (ActionResult) PartialView("_RemoveAccountPartial", linkedAccounts);
+                                  }).Result;
         }
 
         #region Helpers
+
         private ActionResult RedirectToLocal(string returnUrl)
         {
             if (Url.IsLocalUrl(returnUrl))
@@ -391,7 +384,7 @@ namespace Abon.Areas.Portal.Controllers
 
             public override void ExecuteResult(ControllerContext context)
             {
-                context.HttpContext.Challenge(LoginProvider, new AuthenticationExtra() { RedirectUrl = RedirectUrl });
+                context.HttpContext.Challenge(LoginProvider, new AuthenticationExtra() {RedirectUrl = RedirectUrl});
             }
         }
 

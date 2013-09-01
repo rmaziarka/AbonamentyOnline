@@ -1,19 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Principal;
 using System.Web;
 
-namespace Services.Interfaces
+namespace Abon.BusinessLogic.Services.Portal
 {
     public interface IClaimService
     {
-        void SignIn(HttpContextBase context, Guid userId, IEnumerable<Claim> claims, bool isPersistent);
-        
-        void SignIn(HttpContextBase context, Guid userId, bool isPersistent);
+        void SignUserInApp(HttpContextBase context, Guid userId, bool isPersistent, IEnumerable<Claim> claims = null);
 
-        void SignIn(HttpContextBase httpContext, string userName, bool isPersistent);
+
+        void SignUserInApp(HttpContextBase context, string userName, bool isPersistent, IEnumerable<Claim> claims = null);
+
+        void SignUserInApp(HttpContextBase httpContext, string loginProvider, string providerKey, bool isPersistent, IEnumerable<Claim> claims = null);
+
+        Guid GetUserId(IIdentity identity);
+
+        string FindFirstValue(ClaimsIdentity identity, string claimType);
     }
 }

@@ -22,9 +22,9 @@ namespace Abon
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "157356027785034",
+               appSecret: "e6773d7781ba17a2d8333a972cdb77d0");
 
             //app.UseGoogleAuthentication();
         }

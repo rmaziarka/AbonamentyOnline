@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Abon.BusinessLogic.Services.Portal;
 using Ninject.Modules;
-using Services.Interfaces;
 
 namespace Abon.BusinessLogic
 {

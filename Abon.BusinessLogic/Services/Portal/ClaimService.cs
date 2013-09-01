@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+using System.Security.Principal;
 using System.Web;
 using Abon.Database;
 using Abon.Database.Model.Portal;
 using Microsoft.Owin.Host.SystemWeb;
-using Services.Interfaces;
 using System.Web.Helpers;
 using Microsoft.Owin;
 
@@ -33,22 +33,19 @@ namespace Abon.BusinessLogic.Services.Portal
         }
 
 
-        public void SignIn(HttpContextBase context, Guid userId, IEnumerable<Claim> claims, bool isPersistent)
+
+        public void SignUserInApp(HttpContextBase context, Guid userId,  bool isPersistent,IEnumerable<Claim> claims = null)
         {
             var user = _unitOfWork.Repository<User>().GetById(userId);
             if (user == null)
                 return;
 
-            // Replace UserIdentity claims with the application specific claims
-            IList<Claim> userClaims = RemoveUserIdentityClaims(claims);
-            AddUserIdentityClaims(user.Id.ToString(), user.Name, userClaims);
-            SignIn(context, userClaims, isPersistent);
+            SignUserInApp(context, user, isPersistent, claims);
         }
 
-        public void SignIn(HttpContextBase context, string userName, bool isPersistent)
+        public void SignUserInApp(HttpContextBase context, string userName, bool isPersistent, IEnumerable<Claim> claims = null)
         {
-
-            User user = _unitOfWork
+            var user = _unitOfWork
                 .Repository<User>()
                 .All()
                 .FirstOrDefault(el => el.Name == userName);
@@ -56,31 +53,60 @@ namespace Abon.BusinessLogic.Services.Portal
             if (user == null) 
                 return;
 
-            var claims = new List<Claim>();
-            // Replace UserIdentity claims with the application specific claims
-            IList<Claim> userClaims = RemoveUserIdentityClaims(claims);
-            AddUserIdentityClaims(user.Id.ToString(), user.Name, userClaims);
-            SignIn(context, userClaims, isPersistent);
+            SignUserInApp(context, user, isPersistent, claims);
         }
 
-        public void SignIn(HttpContextBase context, Guid userId, bool isPersistent)
+        public void SignUserInApp(HttpContextBase context, string loginProvider, string providerKey, bool isPersistent,
+            IEnumerable<Claim> claims = null)
         {
-            SignIn(context, userId,new List<Claim>(),isPersistent );
+            var user = _unitOfWork.Repository<User>()
+                .All()
+                .FirstOrDefault(
+                    el => el.UserLogins.Any(
+                        ul => ul.LoginProvider
+                        == loginProvider && ul.ProviderKey == providerKey
+                        ));
+
+            if (user == null)
+                return;
+
+            SignUserInApp(context, user, isPersistent, claims);
         }
+
+
+        public  Guid GetUserId(IIdentity identity)
+        {
+            var ci = identity as ClaimsIdentity;
+
+            if (ci == null) return Guid.Empty;
+
+            var stringId = FindFirstValue(ci,UserIdClaimType);
+            return Guid.Parse(stringId);
+        }
+
+        public string FindFirstValue(ClaimsIdentity identity, string claimType)
+        {
+            var claim = identity.FindFirst(claimType);
+
+            return claim != null ? claim.Value : null;
+        }
+
+
+
+        private void SignUserInApp(HttpContextBase context, User user, bool isPersistent, IEnumerable<Claim> claims)
+        {
+            if (claims == null)
+                claims = new List<Claim>();
+
+            IList<Claim> userClaims = RemoveUserIdentityClaims(claims);
+            AddUserIdentityClaims(user.Id.ToString(), user.Name, userClaims);
+            SignInContext(context, userClaims, isPersistent);
+        }
+
 
         private IList<Claim> RemoveUserIdentityClaims(IEnumerable<Claim> claims)
         {
-            List<Claim> filteredClaims = new List<Claim>();
-            foreach (var c in claims)
-            {
-                // Strip out any existing name/nameid claims
-                if (c.Type != ClaimTypes.Name &&
-                    c.Type != ClaimTypes.NameIdentifier)
-                {
-                    filteredClaims.Add(c);
-                }
-            }
-            return filteredClaims;
+            return claims.Where(c => c.Type != ClaimTypes.Name && c.Type != ClaimTypes.NameIdentifier).ToList();
         }
 
         private void AddRoleClaims(IEnumerable<string> roles, IList<Claim> claims)
@@ -99,7 +125,7 @@ namespace Abon.BusinessLogic.Services.Portal
         }
 
 
-        private void SignIn(HttpContextBase context, IEnumerable<Claim> userClaims, bool isPersistent)
+        private void SignInContext(HttpContextBase context, IEnumerable<Claim> userClaims, bool isPersistent)
         {
             context.SignIn(userClaims, ClaimTypes.Name, RoleClaimType, isPersistent);
         }

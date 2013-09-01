@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Portal\Account\UserRegisterDto.cs" />
+    <Compile Include="Portal\Account\ExternalRegistrationDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
