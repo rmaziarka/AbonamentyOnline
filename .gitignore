@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Abon/bin
+/Abon/obj/Debug
+/Abon.BusinessLogic/bin/Debug
+/Abon.BusinessLogic/obj/Debug
+/Abon.Database/bin/Debug
+/Abon.Database/Repository/Repository.cs
+/Abon.Database/obj/Debug
+/Abon.Database.Model/bin/Debug
+/Abon.Database.Model/obj/Debug
+/Abon.Dto/bin/Debug
+/Abon.Dto/obj/Debug
