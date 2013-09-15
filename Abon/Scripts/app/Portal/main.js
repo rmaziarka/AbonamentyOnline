@@ -1,0 +1,1 @@
+﻿angular.module('Abon.Portal', ['Abon.Portal.controllers', 'Abon.validators']);
