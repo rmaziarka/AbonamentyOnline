@@ -41,9 +41,18 @@
   <ItemGroup>
     <Compile Include="Portal\Account\UserRegisterDto.cs" />
     <Compile Include="Portal\Account\ExternalRegistrationDto.cs" />
+    <Compile Include="Portal\Home\CategoryDto.cs" />
+    <Compile Include="Portal\Home\MenuDto.cs" />
+    <Compile Include="Portal\Home\OfferDto.cs" />
+    <Compile Include="Portal\Home\UserOffersDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Abon.Database.Model\Abon.Database.Model.csproj">
+      <Project>{C45EDD0C-5D2C-416A-A10D-47727A000FB6}</Project>
+      <Name>Abon.Database.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
