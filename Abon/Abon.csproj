@@ -262,6 +262,7 @@
     <Content Include="Areas\Portal\Views\Account\Login.cshtml" />
     <Content Include="Areas\Portal\Views\Account\Manage.cshtml" />
     <Content Include="Areas\Portal\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Portal\Views\Home\Test.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
