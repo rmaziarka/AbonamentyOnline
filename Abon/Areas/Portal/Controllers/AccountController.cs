@@ -37,7 +37,11 @@ namespace Abon.Areas.Portal.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            var model = new LoginViewModel();
+            model.UserName = "Mati";
+            model.Password = "123";
+            
+            return View(model);
         }
 
         //

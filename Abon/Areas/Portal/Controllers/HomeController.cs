@@ -28,6 +28,12 @@ namespace Abon.Areas.Portal.Controllers
             return View();
         }
 
+        
+        public ActionResult Test()
+        {
+            return View();
+        }
+
         public ActionResult UserOffers(Guid? categoryId, string name = null)
         {
             var model = _offersService.GetOffers(new OfferFilterDto() {CategoryId = categoryId, Name = name});
@@ -36,7 +42,7 @@ namespace Abon.Areas.Portal.Controllers
         }
 
         public LoweredJsonResult GetUserOffers(OfferFilterDto filter)
-        {
+                            {
             var dto = _offersService.GetOffers(filter);
             return LoweredJson(dto);
         }
@@ -109,7 +115,7 @@ namespace Abon.Areas.Portal.Controllers
             };
             parent.Children = new List<CategoryDto> { first, second, third };
 
-        }
+        } 
 
-    }
+	}
 }

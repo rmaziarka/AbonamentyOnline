@@ -282,6 +282,7 @@
     <Content Include="Areas\Portal\Views\Account\Login.cshtml" />
     <Content Include="Areas\Portal\Views\Account\Manage.cshtml" />
     <Content Include="Areas\Portal\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Portal\Views\Home\Test.cshtml" />
     <Content Include="Areas\Portal\Views\Home\_Partials\Menu.cshtml" />
     <Content Include="Areas\Portal\Views\Home\UserOffers.cshtml" />
     <Content Include="Areas\Portal\Views\Home\_Partials\Categories.cshtml" />
