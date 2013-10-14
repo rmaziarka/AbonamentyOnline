@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abon.Database.Model;
 
-namespace Abon.Database.Repository
+namespace Abon.Interfaces
 {
     public interface IRepository<T> where T : ModelBase
     {

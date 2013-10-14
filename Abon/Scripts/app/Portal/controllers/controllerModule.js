@@ -1,0 +1,1 @@
+﻿var controllerModule = angular.module('Abon.Portal.controllers', ['ui.bootstrap', 'Abon.helpers', 'Abon.Portal.services']);

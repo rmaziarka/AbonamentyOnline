@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin">
       <HintPath>..\packages\Microsoft.Owin.1.1.0-beta1\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
@@ -58,12 +64,16 @@
   <ItemGroup>
     <Compile Include="BusinessLogicModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\Portal\ClaimService.cs" />
-    <Compile Include="Services\Portal\IClaimService.cs" />
-    <Compile Include="Services\Portal\IUserService.cs" />
+    <Compile Include="Services\Portal\OffersService.cs" />
     <Compile Include="Services\Portal\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Abon.Core\Abon.Core.csproj">
+      <Project>{6CCDEB40-020B-4FCB-AFBE-2EFC7D2BDF27}</Project>
+      <Name>Abon.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Abon.Database.Model\Abon.Database.Model.csproj">
       <Project>{C45EDD0C-5D2C-416A-A10D-47727A000FB6}</Project>
       <Name>Abon.Database.Model</Name>
@@ -75,6 +85,10 @@
     <ProjectReference Include="..\Abon.Dto\Abon.Dto.csproj">
       <Project>{fd882add-6c97-41cf-9166-efbae83c5887}</Project>
       <Name>Abon.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Abon.Interfaces\Abon.Interfaces.csproj">
+      <Project>{DCBCA26E-E6EE-4EF2-950C-B408B70DAA7E}</Project>
+      <Name>Abon.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,10 @@
 using System.Data.SqlClient;
 using Abon.BusinessLogic;
+using Abon.Core.Helpers;
 using Abon.Database;
+using Abon.Database.Initializers;
+using Abon.Dto.Portal;
+using Abon.Interfaces;
 using SimpleCrypto;
 using Abon.Database.Model;
 
@@ -30,6 +34,8 @@ namespace Abon.App_Start
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
+
+            ConfigureMappings();
 
 
             Database.SetInitializer(new AbonDatabaseInitializer());
@@ -66,6 +72,11 @@ namespace Abon.App_Start
             kernel.Bind<IUnitOfWork>().To<UnitOfWork>();
             kernel.Bind<ICryptoService>().To<PBKDF2>();
             kernel.Load(new BusinessLogicModule());
-        }        
+        }
+
+        private static void ConfigureMappings()
+        {
+            PortalMapperConfiguration.Configure();
+        }
     }
 }

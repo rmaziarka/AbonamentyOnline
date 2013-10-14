@@ -12,12 +12,19 @@ namespace Abon.Areas.Portal
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
-		{
+        public override void RegisterArea(AreaRegistrationContext context)
+        {
+
             context.MapRoute(
-                "Portal_default",
+                "Portal_with_controller",
                 "{controller}/{action}/{id}",
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                new {controller = "Home", action = "Index", id = UrlParameter.Optional}
+                );
+
+            context.MapRoute(
+                "Portal_without_controller",
+                "{action}",
+                new { controller = "Home", action = "Index" }
             );
         }
     }

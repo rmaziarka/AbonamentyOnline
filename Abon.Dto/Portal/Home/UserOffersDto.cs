@@ -10,9 +10,8 @@ namespace Abon.Dto.Portal.Home
     {
         public string Name { get; set; }
 
-        public IEnumerable<OfferDto> Offers { get; set; }
+        public PagedList<OfferDto> Offers { get; set; }
  
         public CategoryDto SelectedCategory { get; set; }
-
     }
 }

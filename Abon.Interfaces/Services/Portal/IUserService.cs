@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Security.Claims;
 using Abon.Dto.Portal.Account;
 
-namespace Abon.BusinessLogic.Services.Portal
+namespace Abon.Interfaces.Services.Portal
 {
     public interface IUserService
     {

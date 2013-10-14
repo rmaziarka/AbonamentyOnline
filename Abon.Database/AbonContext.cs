@@ -14,6 +14,8 @@ namespace Abon.Database
         public virtual IDbSet<User> Users { get; set; }
         public virtual IDbSet<UserLogin> UserLogins { get; set; }
         public virtual IDbSet<UserSecret> UserSecrets { get; set; }
+        public virtual IDbSet<Offer> Offers { get; set; }
+        public virtual IDbSet<Category> Categories { get; set; }
 
         public AbonContext()
         {
@@ -28,6 +30,8 @@ namespace Abon.Database
             modelBuilder.Configurations.Add(new UserMapping());
             modelBuilder.Configurations.Add(new UserLoginMapping());
             modelBuilder.Configurations.Add(new UserSecretMapping());
+            modelBuilder.Configurations.Add(new OfferMapping());
+            modelBuilder.Configurations.Add(new CategoryMapping());
             base.OnModelCreating(modelBuilder);
         }
     }

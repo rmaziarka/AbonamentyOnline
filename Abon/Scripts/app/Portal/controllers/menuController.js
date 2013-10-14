@@ -1,8 +1,7 @@
-﻿angular.module('Abon.Portal.controllers', ['ui.bootstrap','Abon.helpers'])
-    .controller('menuController', ['$scope','$timeout','windowDataHelper', function ($scope,$timeout,windowHelper) {
+﻿controllerModule
+    .controller('menuController', ['$scope','$timeout','scopeHelper', function ($scope,$timeout,windowHelper) {
 
-        windowHelper.addInitDataToScope($scope, 'MenuData');
-        var openedCategory = null;
+        windowHelper.addDataToScope($scope, 'menuData');
         var closeMenuFunc = angular.noop;
 
         $scope.openedCategory = null;
@@ -26,8 +25,6 @@
 
     }])
     .directive('horMenu', function () {
-        var openElement = null,
-            closeMenu = angular.noop;
         return {            
             restrict: 'E',
             replace: true,
@@ -39,7 +36,7 @@
                             '</ul>'+
                             '<div ng-mouseenter="openMenu()" ng-mouseleave="closeMenu()" ng-show="openedCategory != null" class="subcategoryDiv">' +
                                 '<ul>'+
-                                    '<li ng-repeat="subcat in openedCategory.children">{{subcat.name}}</li>'+
+                                    '<li ng-repeat="subcat in openedCategory.children"><a ng-href="/UserOffers?categoryId={{subcat.id}}">{{subcat.name}}</a></li>' +
                                 '</ul>'+
                             '</div>'
         };

@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,12 +42,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PagedFilter.cs" />
+    <Compile Include="PagedList.cs" />
     <Compile Include="Portal\Account\UserRegisterDto.cs" />
     <Compile Include="Portal\Account\ExternalRegistrationDto.cs" />
     <Compile Include="Portal\Home\CategoryDto.cs" />
+    <Compile Include="Portal\Home\Filter\OfferFilterDto.cs" />
     <Compile Include="Portal\Home\MenuDto.cs" />
     <Compile Include="Portal\Home\OfferDto.cs" />
     <Compile Include="Portal\Home\UserOffersDto.cs" />
+    <Compile Include="Portal\PortalMapperConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

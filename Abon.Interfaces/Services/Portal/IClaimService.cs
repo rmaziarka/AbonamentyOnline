@@ -4,7 +4,7 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Web;
 
-namespace Abon.BusinessLogic.Services.Portal
+namespace Abon.Interfaces.Services.Portal
 {
     public interface IClaimService
     {

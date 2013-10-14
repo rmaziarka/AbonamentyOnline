@@ -8,10 +8,10 @@ namespace Abon.Dto.Portal.Account
 {
     public class ExternalRegistrationDto
     {
-
         public string UserName { get; set; }
 
         public string LoginProvider { get; set; }
-    
     }
+
+
 }

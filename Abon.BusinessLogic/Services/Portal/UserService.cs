@@ -4,6 +4,8 @@ using System.Security.Claims;
 using Abon.Database;
 using Abon.Database.Model.Portal;
 using Abon.Dto.Portal.Account;
+using Abon.Interfaces;
+using Abon.Interfaces.Services.Portal;
 using SimpleCrypto;
 
 namespace Abon.BusinessLogic.Services.Portal
@@ -35,6 +37,7 @@ namespace Abon.BusinessLogic.Services.Portal
             }
             return true;
         }
+
 
 
         public bool Validate(string userName, string password)
