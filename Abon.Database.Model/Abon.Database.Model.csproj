@@ -40,7 +40,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelBase.cs" />
+    <Compile Include="Portal\Category.cs" />
     <Compile Include="Portal\Enums\CategoryType.cs" />
+    <Compile Include="Portal\Offer.cs" />
     <Compile Include="Portal\User.cs" />
     <Compile Include="Portal\UserLogin.cs" />
     <Compile Include="Portal\UserSecret.cs" />

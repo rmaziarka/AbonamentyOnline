@@ -13,6 +13,8 @@ namespace Abon.Dto.Portal.Home
 
         public CategoryDto Parent { get; set; }
 
+        public Guid? ParentId { get; set; }
+
         public IEnumerable<CategoryDto> Children { get; set; }
 
         public string Name { get; set; }

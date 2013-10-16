@@ -180,9 +180,13 @@
     <Compile Include="Areas\Portal\Controllers\AccountController.cs" />
     <Compile Include="Areas\Portal\Controllers\HomeController.cs" />
     <Compile Include="Areas\Portal\PortalAreaRegistration.cs" />
+    <Compile Include="Core\AbonController.cs" />
+    <Compile Include="Core\JsonModel.cs" />
+    <Compile Include="Core\LoweredJsonResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelpers\AngularHtmlHelper.cs" />
     <Compile Include="HtmlHelpers\JsonParseHtmlHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -190,6 +194,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Areas\Portal\Views\Home\OfferTemplates\gallery.cshtml" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -255,9 +260,14 @@
     <Content Include="Scripts\angularjs\angular-mocks.js" />
     <Content Include="Scripts\angularjs\angular.js" />
     <Content Include="Scripts\angularjs\ui-bootstrap-tpls-0.6.0.js" />
-    <Content Include="Scripts\app\helpers\windowDataHelper.js" />
+    <Content Include="Scripts\app\helpers\scopeHelper.js" />
+    <Content Include="Scripts\app\Portal\controllers\categoryController.js" />
+    <Content Include="Scripts\app\Portal\controllers\controllerModule.js" />
     <Content Include="Scripts\app\Portal\controllers\menuController.js" />
+    <Content Include="Scripts\app\Portal\controllers\offersController.js" />
     <Content Include="Scripts\app\Portal\main.js" />
+    <Content Include="Scripts\app\Portal\services\offersService.js" />
+    <Content Include="Scripts\app\Portal\services\serviceModule.js" />
     <Content Include="Scripts\app\validators\emailValidator.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -273,6 +283,9 @@
     <Content Include="Areas\Portal\Views\Account\Manage.cshtml" />
     <Content Include="Areas\Portal\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Portal\Views\Home\Test.cshtml" />
+    <Content Include="Areas\Portal\Views\Home\_Partials\Menu.cshtml" />
+    <Content Include="Areas\Portal\Views\Home\UserOffers.cshtml" />
+    <Content Include="Areas\Portal\Views\Home\_Partials\Categories.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -286,6 +299,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\test\helpers\windowDataHelperTest.js" />
+    <Content Include="Scripts\test\Portal\controllers\offersControllerTest.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -304,7 +319,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Portal\Models\" />
-    <Folder Include="Scripts\app\Portal\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -313,6 +327,10 @@
     <ProjectReference Include="..\Abon.BusinessLogic\Abon.BusinessLogic.csproj">
       <Project>{E09E7092-B5B3-4F06-9902-EEB4403ED6BA}</Project>
       <Name>Abon.BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Abon.Core\Abon.Core.csproj">
+      <Project>{6CCDEB40-020B-4FCB-AFBE-2EFC7D2BDF27}</Project>
+      <Name>Abon.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Abon.Database.Model\Abon.Database.Model.csproj">
       <Project>{c45edd0c-5d2c-416a-a10d-47727a000fb6}</Project>
@@ -325,6 +343,10 @@
     <ProjectReference Include="..\Abon.Dto\Abon.Dto.csproj">
       <Project>{FD882ADD-6C97-41CF-9166-EFBAE83C5887}</Project>
       <Name>Abon.Dto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Abon.Interfaces\Abon.Interfaces.csproj">
+      <Project>{DCBCA26E-E6EE-4EF2-950C-B408B70DAA7E}</Project>
+      <Name>Abon.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

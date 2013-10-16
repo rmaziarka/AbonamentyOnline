@@ -1,15 +1,24 @@
-﻿@model Abon.Dto.Portal.Home.UserOffersDto
+﻿@using Abon.HtmlHelpers
+@model Abon.Dto.Portal.Home.UserOffersDto
 
 @{
     ViewBag.Title = "Oferty";
 }
-<div class="row" ng-controller="offerController">
-    <div class="span3">
-        
+<div class="row" ng-controller="offersController">
+    <div class="span12" style="height: 50px"><span ng-show="categoryHeaderVisible">Kategoria {{selectedCategory.name}} - </span>{{offers.total}} produktów</div>
+    <div class="span3" ng-controller="categoryController">
+        @Html.Partial("_Partials/Categories")
     </div>
+    <div class="span9" data-ng-include="template">
+    </div>   
     
 
-    <div class="span9">
-        
-    </div>   
+    <script type="text/ng-template" id="gallery.html">
+        @Html.Partial("OfferTemplates/gallery")
+    </script>
 </div>
+
+<script>
+    window.userOffersData = @Html.ToCamelCaseJson(Model)
+
+</script>

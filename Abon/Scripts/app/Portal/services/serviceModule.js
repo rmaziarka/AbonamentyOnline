@@ -1,0 +1,1 @@
+﻿var serviceModule = angular.module('Abon.Portal.services',[]);

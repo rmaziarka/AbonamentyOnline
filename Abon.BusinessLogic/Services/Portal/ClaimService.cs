@@ -6,6 +6,8 @@ using System.Security.Principal;
 using System.Web;
 using Abon.Database;
 using Abon.Database.Model.Portal;
+using Abon.Interfaces;
+using Abon.Interfaces.Services.Portal;
 using Microsoft.Owin.Host.SystemWeb;
 using System.Web.Helpers;
 using Microsoft.Owin;

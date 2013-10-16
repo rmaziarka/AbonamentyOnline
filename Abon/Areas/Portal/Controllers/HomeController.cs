@@ -2,14 +2,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Http;
 using System.Web.Mvc;
+using Abon.Core;
 using Abon.Database.Model.Portal.Enums;
 using Abon.Dto.Portal.Home;
+using Abon.Dto.Portal.Home.Filter;
+using Abon.Interfaces.Services.Portal;
+using Newtonsoft.Json.Serialization;
 
 namespace Abon.Areas.Portal.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AbonController
     {
+        private IOffersService _offersService;
+
+        public HomeController(IOffersService offersService)
+        {
+            _offersService = offersService;
+        }
         //
         // GET: /Portal/Home/
         public ActionResult Index()
@@ -17,39 +28,23 @@ namespace Abon.Areas.Portal.Controllers
             return View();
         }
 
+        
         public ActionResult Test()
         {
             return View();
         }
 
-        public ActionResult UserOffers(Guid categoryId, string name)
+        public ActionResult UserOffers(Guid? categoryId, string name = null)
         {
-            var category = new CategoryDto()
-                           {
-                               Id = categoryId,
-                               CategoryType = CategoryType.Individual,
-                               Name = "Druga",
-                               OffersNumber = 5
-                           };
-
-            var model = new UserOffersDto() { Name = name, SelectedCategory = category, Offers = GetOffers()};
+            var model = _offersService.GetOffers(new OfferFilterDto() {CategoryId = categoryId, Name = name});
 
             return View(model);
         }
 
-        private IEnumerable<OfferDto> GetOffers()
-        {
-            return
-                Enumerable.Range(0, 5)
-                    .Select(
-                        el =>
-                            new OfferDto()
+        public LoweredJsonResult GetUserOffers(OfferFilterDto filter)
                             {
-                                Name = "Produkt " + el,
-                                ProducerPrice = 20,
-                                OurPrice = 10,
-                                Description = "Produkt"
-                            });
+            var dto = _offersService.GetOffers(filter);
+            return LoweredJson(dto);
         }
 
         public ActionResult Menu()
@@ -121,5 +116,6 @@ namespace Abon.Areas.Portal.Controllers
             parent.Children = new List<CategoryDto> { first, second, third };
 
         } 
+
 	}
 }
