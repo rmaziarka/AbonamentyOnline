@@ -178,6 +178,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Portal\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Portal\Controllers\UserOffersController.cs" />
     <Compile Include="Areas\Portal\Controllers\HomeController.cs" />
     <Compile Include="Areas\Portal\PortalAreaRegistration.cs" />
     <Compile Include="Core\AbonController.cs" />
@@ -194,7 +195,9 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Areas\Portal\Views\Home\OfferTemplates\gallery.cshtml" />
+    <Content Include="Areas\Portal\Views\UserOffers\OfferTemplates\two.cshtml" />
+    <Content Include="Areas\Portal\Views\UserOffers\OfferTemplates\three.cshtml" />
+    <None Include="Areas\Portal\Views\UserOffers\OfferTemplates\list.cshtml" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -263,6 +266,7 @@
     <Content Include="Scripts\app\helpers\scopeHelper.js" />
     <Content Include="Scripts\app\Portal\controllers\categoryController.js" />
     <Content Include="Scripts\app\Portal\controllers\controllerModule.js" />
+    <Content Include="Scripts\app\Portal\controllers\filterController.js" />
     <Content Include="Scripts\app\Portal\controllers\menuController.js" />
     <Content Include="Scripts\app\Portal\controllers\offersController.js" />
     <Content Include="Scripts\app\Portal\main.js" />
@@ -284,8 +288,9 @@
     <Content Include="Areas\Portal\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Portal\Views\Home\Test.cshtml" />
     <Content Include="Areas\Portal\Views\Home\_Partials\Menu.cshtml" />
-    <Content Include="Areas\Portal\Views\Home\UserOffers.cshtml" />
-    <Content Include="Areas\Portal\Views\Home\_Partials\Categories.cshtml" />
+    <Content Include="Areas\Portal\Views\UserOffers\Index.cshtml" />
+    <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Categories.cshtml" />
+    <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Filter.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
