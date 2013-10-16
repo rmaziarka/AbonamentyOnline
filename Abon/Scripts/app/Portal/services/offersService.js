@@ -6,7 +6,7 @@
 
             var deferred = $q.defer();
 
-            $http.get('/Home/GetUserOffers', {
+            $http.get('/UserOffers/Get', {
                 params: params
             })
                 .success(function (obj) {

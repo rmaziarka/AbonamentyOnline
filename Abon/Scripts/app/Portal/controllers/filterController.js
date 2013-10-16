@@ -1,5 +1,5 @@
 ﻿controllerModule
-    .controller('offersController', ['$scope', 'scopeHelper', 'offersService', function($scope, helper, service) {
+    .controller('filterController', ['$scope', 'scopeHelper', function($scope, helper) {
 
         helper.addDataToScope($scope, 'userOffersData');
 

@@ -1,0 +1,23 @@
+﻿@{
+    var filterForm = "filterForm";
+}
+
+<div>
+    <form name="filterForm">
+        <div>
+        </div>
+
+    </form>
+    <div ng-show="selectedCategory.parentId">
+        <a ng-click="categoryClicked(selectedCategory.parentId)" href="#">Do góry</a>
+    </div>
+
+    <div ng-show="!selectedCategory.children.length">
+        {{selectedCategory.name}} -- {{offers.total}}
+    </div>
+    <ul>
+        <li ng-show="selectedCategory.children.length" ng-repeat="cat in selectedCategory.children">
+            <a ng-click="categoryClicked(cat.id)" href="#">{{cat.name}} -- {{cat.offersNumber}}</a>
+        </li>
+    </ul>
+</div>
