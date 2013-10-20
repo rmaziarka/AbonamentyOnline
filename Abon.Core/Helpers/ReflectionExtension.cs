@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.ComponentModel.DataAnnotations;
 
 namespace Abon.Core.Helpers
 {
@@ -31,13 +32,13 @@ namespace Abon.Core.Helpers
 
         public static string GetPropertyDisplayName(this MemberInfo memberInfo)
         {
-            var attr = memberInfo.GetAttribute<DisplayNameAttribute>(false);
+            var attr = memberInfo.GetAttribute<DisplayAttribute>(false);
             if (attr == null)
             {
                 return memberInfo.Name;
             }
 
-            return attr.DisplayName;
+            return attr.GetName();
         }
 
         public static string GetPropertyDisplayName<TModel, TProperty>(this Expression<Func<TModel, TProperty>> propertyExpression)
@@ -50,13 +51,13 @@ namespace Abon.Core.Helpers
                     "propertyExpression");
             }
 
-            var attr = memberInfo.GetAttribute<DisplayNameAttribute>(false);
+            var attr = memberInfo.GetAttribute<DisplayAttribute>(false);
             if (attr == null)
             {
                 return memberInfo.Name;
             }
 
-            return attr.DisplayName;
+            return attr.GetName();
         }
 
         public static MemberInfo GetPropertyInformation<TModel, TProperty>(this Expression<Func<TModel, TProperty>> propertyExpression)

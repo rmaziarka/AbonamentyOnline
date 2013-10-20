@@ -1,0 +1,1 @@
+﻿var validatorModule = angular.module('Abon.validators', []);

@@ -16,11 +16,12 @@ namespace Abon.Database
         public virtual IDbSet<UserSecret> UserSecrets { get; set; }
         public virtual IDbSet<Offer> Offers { get; set; }
         public virtual IDbSet<Category> Categories { get; set; }
+        public virtual IDbSet<City> Cities { get; set; }
 
         public AbonContext()
         {
             Database.Connection.ConnectionString =
-                @"Data Source=MEFTASTYLE\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
+                @"Data Source=SIARAPC\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
 
 
         }
@@ -32,6 +33,7 @@ namespace Abon.Database
             modelBuilder.Configurations.Add(new UserSecretMapping());
             modelBuilder.Configurations.Add(new OfferMapping());
             modelBuilder.Configurations.Add(new CategoryMapping());
+            modelBuilder.Configurations.Add(new CityMapping());
             base.OnModelCreating(modelBuilder);
         }
     }

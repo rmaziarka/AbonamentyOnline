@@ -26,11 +26,13 @@ namespace Abon.Areas.Portal.Controllers
         public ActionResult Test()
         {
             return View();
-        }
+        }   
 
         public ActionResult Index(Guid? categoryId, string name = null)
         {
             var model = _offersService.GetOffers(new OfferFilterDto() {CategoryId = categoryId, Name = name});
+
+            model.Cities = _offersService.GetOffersCities();
 
             return View(model);
         }

@@ -17,6 +17,10 @@ namespace Abon.Database.Mappings.Portal
             HasRequired(el => el.Category)
                 .WithMany(el => el.Offers)
                 .WillCascadeOnDelete(true);
+
+            HasOptional(el => el.City)
+                .WithMany(el => el.Offers)
+                .WillCascadeOnDelete(false);
         }
     }
 }

@@ -23,7 +23,8 @@ namespace Abon.Database.Initializers.Portal
                             CategoryId = Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2"),
                             CompanyLogoUrl = "",
                             OfferImageUrl = "",
-                            CreateDate = DateTime.Now
+                            CreateDate = DateTime.Now,
+                            CityId = Guid.Parse("a5a82340-25a8-4c26-932a-c646ec534d62")
                         },
 
                     new Offer
@@ -49,7 +50,8 @@ namespace Abon.Database.Initializers.Portal
                             CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
                             CompanyLogoUrl = "",
                             OfferImageUrl = "",
-                            CreateDate = DateTime.Now
+                            CreateDate = DateTime.Now,
+                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d")
                         },
 
                     new Offer

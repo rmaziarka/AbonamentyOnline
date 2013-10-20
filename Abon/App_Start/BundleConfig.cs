@@ -27,12 +27,15 @@ namespace Abon
 
             bundles.Add(new ScriptBundle("~/bundles/portalApp").Include(
                 "~/Scripts/app/helpers/scopeHelper.js",
+                "~/Scripts/app/validators/validatorModule.js",
+                "~/Scripts/app/validators/numberValidator.js",
                 "~/Scripts/app/validators/emailValidator.js",
                 "~/Scripts/app/Portal/services/serviceModule.js",
                 "~/Scripts/app/Portal/services/offersService.js",
                 "~/Scripts/app/Portal/controllers/controllerModule.js",
                 "~/Scripts/app/Portal/controllers/menuController.js",
                 "~/Scripts/app/Portal/controllers/categoryController.js",
+                "~/Scripts/app/Portal/controllers/filterController.js",
                 "~/Scripts/app/Portal/controllers/offersController.js",
                 "~/Scripts/app/Portal/main.js"
                 ));

@@ -280,7 +280,9 @@
     <Content Include="Scripts\app\Portal\main.js" />
     <Content Include="Scripts\app\Portal\services\offersService.js" />
     <Content Include="Scripts\app\Portal\services\serviceModule.js" />
+    <Content Include="Scripts\app\validators\numberValidator.js" />
     <Content Include="Scripts\app\validators\emailValidator.js" />
+    <Content Include="Scripts\app\validators\validatorModule.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Portal\Views\Web.Config" />

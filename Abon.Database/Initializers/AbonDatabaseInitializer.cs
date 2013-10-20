@@ -9,6 +9,7 @@ namespace Abon.Database.Initializers
         {
             new OfferInitializer().Initialize().ForEach(x => context.Offers.Add(x));
             new CategoryInitializer().Initialize().ForEach(x => context.Categories.Add(x));
+            new CityInitializer().Initialize().ForEach(x => context.Cities.Add(x));
 
             base.Seed(context);
         }

@@ -6,8 +6,9 @@
 }
 <div class="row" ng-controller="offersController">
     <div class="span12" style="height: 50px"><span ng-show="categoryHeaderVisible">Kategoria {{selectedCategory.name}} - </span>{{offers.total}} produktów</div>
-    <div class="span3" ng-controller="categoryController">
+    <div class="span3">
         @Html.Partial("_Partials/_Categories")
+        @Html.Partial("_Partials/_Filter")
     </div>
     <div class="span9">
         <div>

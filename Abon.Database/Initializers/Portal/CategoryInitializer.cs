@@ -44,7 +44,7 @@ namespace Abon.Database.Initializers.Portal
                     new Category
                         {
                             Id= Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C") ,
-                            Name = "Trzecia",
+                            Name = "Rozrywka",
                             Left = 6,
                             Right=7,
                             CategoryType = CategoryType.Both,

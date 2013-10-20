@@ -1,35 +1,18 @@
 ﻿controllerModule
     .controller('filterController', ['$scope', 'scopeHelper', function($scope, helper) {
 
-        helper.addDataToScope($scope, 'userOffersData');
+        helper.addDataFromProperty($scope, 'userOffersData', 'cities');
 
-        $scope.categoryHeaderVisible = $scope.selectedCategory.parentId === null;
+        $scope.filter = function () {
+            var data = {
+                cityId: this.cityId,
+                priceFrom: this.priceFrom,
+                priceTo: this.priceTo,
+            }
 
-        $scope.template = 'three.html';
+            $scope.$emit('offers-filterClicked', data);
+        };
 
-        $scope.$on('offers-categoryClicked', function(event, categoryId) {
-            var params = {
-                categoryId: categoryId,
-                name: $scope.name
-            };
-            getOffers(params);
-        });
-
-        $scope.changeView = function (view) {
-            $scope.template = view;
-        }
-
-
-        function getOffers(params) {
-            service.getOffers(params).then(function(obj) {
-                $scope.offers = obj.data.offers;
-                $scope.selectedCategory = obj.data.selectedCategory;
-                $scope.offers = obj.data.offers;
-
-                $scope.$broadcast('offers-offersReceived', obj.data);
-
-            });
-        }
 
 
     }]);

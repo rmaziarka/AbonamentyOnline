@@ -11,6 +11,7 @@ using Abon.Dto.Portal.Home.Filter;
 using Abon.Interfaces;
 using Abon.Interfaces.Services.Portal;
 using AutoMapper.Internal;
+using System.Web.Mvc;
 
 namespace Abon.BusinessLogic.Services.Portal
 {
@@ -33,6 +34,9 @@ namespace Abon.BusinessLogic.Services.Portal
 
             if (filter.PriceTo.HasValue)
                 offers = offers.Where(el => el.OurPrice <= filter.PriceTo);
+
+            if (filter.CityId.HasValue)
+                offers = offers.Where(el => el.CityId == filter.CityId.Value);
 
 
             var category = filter.CategoryId.HasValue
@@ -61,6 +65,15 @@ namespace Abon.BusinessLogic.Services.Portal
             return model;
         }
 
+        public IEnumerable<SelectListItem> GetOffersCities()
+        {
+            var cities = UnitOfWork.Repository<City>()
+                .All();
+
+            return cities.Map<IEnumerable<SelectListItem>>();
+
+        }
+
 
         #endregion
 
@@ -78,6 +91,7 @@ namespace Abon.BusinessLogic.Services.Portal
                                         CategoryType = el.CategoryType,
                                         OffersNumber = filteredOffers.Count(o => o.Category.Left >= el.Left && o.Category.Right <= el.Right)
                                     })
+                .Where(el => el.OffersNumber > 0)
                .ToList();
 
             var parent = category.Map<CategoryDto>();

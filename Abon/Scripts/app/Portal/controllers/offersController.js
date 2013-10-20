@@ -4,15 +4,21 @@
         helper.addDataToScope($scope, 'userOffersData');
 
         $scope.categoryHeaderVisible = $scope.selectedCategory.parentId === null;
-
+        $scope.categoryId = $scope.selectedCategory.id;
         $scope.template = 'three.html';
 
-        $scope.$on('offers-categoryClicked', function(event, categoryId) {
-            var params = {
-                categoryId: categoryId,
-                name: $scope.name
-            };
-            getOffers(params);
+        $scope.$on('offers-categoryClicked', function (event, categoryId) {
+            $scope.categoryId = categoryId;
+
+            getOffers();
+        });
+
+        $scope.$on('offers-filterClicked', function (event, data) {
+            $scope.priceFrom = data.priceFrom;
+            $scope.priceTo = data.priceTo;
+            $scope.cityId = data.cityId;
+
+            getOffers();
         });
 
         $scope.changeView = function (view) {
@@ -20,14 +26,25 @@
         }
 
 
-        function getOffers(params) {
+        function prepareSearchParams() {
+            var params = {
+                categoryId: $scope.categoryId,
+                name: $scope.name,
+                priceTo: $scope.priceTo,
+                priceFrom: $scope.priceFrom,
+                cityId: $scope.cityId,
+            };
+            return params;
+        }
+
+        function getOffers() {
+            var params = prepareSearchParams();
             service.getOffers(params).then(function(obj) {
                 $scope.offers = obj.data.offers;
                 $scope.selectedCategory = obj.data.selectedCategory;
                 $scope.offers = obj.data.offers;
 
                 $scope.$broadcast('offers-offersReceived', obj.data);
-
             });
         }
 
