@@ -266,7 +266,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\ikonatest.png" />
     <Content Include="img\logo.png" />
+    <Content Include="img\lupa.png" />
     <Content Include="Scripts\angularjs\angular-cache-0.9.1.js" />
     <Content Include="Scripts\angularjs\angular-mocks.js" />
     <Content Include="Scripts\angularjs\angular.js" />

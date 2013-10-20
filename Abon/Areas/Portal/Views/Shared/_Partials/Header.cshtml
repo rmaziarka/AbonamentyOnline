@@ -12,24 +12,34 @@
             </a>
             <ul class="nav pull-right">
                 @Html.Partial("_LoginPartial")
-                        <div class="search-main">
-                            <input type="text" class="main-search" placeholder="szukaj.." />
-                            <input type="button" class="search btn" value="" />
-                        </div>
-                </ul>
+                <div class="search-main">
+                    <input type="text" class="main-search" placeholder="szukaj.." />
+                    <input type="button" class="search btn" value="" />
+                </div>
+            </ul>
             <div class="clearfix"></div>
-                        <div class="nav-collapse collapse">
-                            <div class="menu-bg">
-                            <ul class="nav main-menu">
-                                <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                                                        <li>@Html.ActionLink("About", "About", "Home")</li>
-                                                                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                                                                                                        <li>@Html.ActionLink("test", "test", "Home")</li>
-                                                                                                                            </ul>
+            <div class="menu-bg">
+                <div class="container">
+                    <div class="nav-collapse collapse">
 
-                            </div>                            
-                            </div>
+                        <ul class="nav main-menu">
+                            <li>
+                                <img src="/img/ikonatest.png"/>
+                                @Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>
+                                <img src="/img/ikonatest.png" />
+                            @Html.ActionLink("About", "About", "Home")</li>
+                            <li>
+                                <img src="/img/ikonatest.png" />
+                            @Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>
+                                <img src="/img/ikonatest.png" />
+                            @Html.ActionLink("test", "test", "Home")</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
-</div>
+        </div>
     </div>
 </div>
