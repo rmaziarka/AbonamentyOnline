@@ -34,18 +34,6 @@ namespace Abon.Areas.Portal.Controllers
             return View();
         }
 
-        public ActionResult UserOffers(Guid? categoryId, string name = null)
-        {
-            var model = _offersService.GetOffers(new OfferFilterDto() {CategoryId = categoryId, Name = name});
-
-            return View(model);
-        }
-
-        public LoweredJsonResult GetUserOffers(OfferFilterDto filter)
-                            {
-            var dto = _offersService.GetOffers(filter);
-            return LoweredJson(dto);
-        }
 
         public ActionResult Menu()
         {

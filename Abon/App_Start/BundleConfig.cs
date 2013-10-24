@@ -19,14 +19,21 @@ namespace Abon
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/core").Include(
+                "~/Scripts/jquery-1.8.2.js",
+                "~/Scripts/spin.js"
+                ));
             bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
                 "~/Scripts/angularjs/angular.js",
                 "~/Scripts/angularjs/angular-cache-0.9.1.js",
                 "~/Scripts/angularjs/ui-bootstrap-tpls-0.6.0.js"
                 ));
 
+
             bundles.Add(new ScriptBundle("~/bundles/portalApp").Include(
                 "~/Scripts/app/helpers/scopeHelper.js",
+                "~/Scripts/app/common/commonModule.js",
+                "~/Scripts/app/common/spinner.js",
                 "~/Scripts/app/validators/validatorModule.js",
                 "~/Scripts/app/validators/numberValidator.js",
                 "~/Scripts/app/validators/emailValidator.js",
@@ -37,6 +44,7 @@ namespace Abon
                 "~/Scripts/app/Portal/controllers/categoryController.js",
                 "~/Scripts/app/Portal/controllers/filterController.js",
                 "~/Scripts/app/Portal/controllers/offersController.js",
+                "~/Scripts/app/Portal/controllers/pagerController.js",
                 "~/Scripts/app/Portal/main.js"
                 ));
 

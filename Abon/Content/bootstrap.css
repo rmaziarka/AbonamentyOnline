@@ -6175,3 +6175,16 @@ header{height:100px;}
 .main-search::-moz-placeholder { color:#C9C9C9; } /* firefox 19+ */
 .main-search:-ms-input-placeholder { color:#C9C9C9; } /* ie */
 .main-searchinput:-moz-placeholder { color:#C9C9C9; }
+
+
+#overlay {
+    background-color: #000000;
+    height: 100%;
+    left: 0;
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}

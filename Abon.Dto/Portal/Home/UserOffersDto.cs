@@ -16,5 +16,9 @@ namespace Abon.Dto.Portal.Home
         public CategoryDto SelectedCategory { get; set; }
 
         public IEnumerable<SelectListItem> Cities { get; set; }
+
+        public int Page { get; set; }
+
+        public int Take { get; set; }
     }
 }
