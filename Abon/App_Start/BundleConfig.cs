@@ -34,6 +34,7 @@ namespace Abon
                 "~/Scripts/app/helpers/scopeHelper.js",
                 "~/Scripts/app/common/commonModule.js",
                 "~/Scripts/app/common/spinner.js",
+                "~/Scripts/app/common/lazyImg.js",
                 "~/Scripts/app/validators/validatorModule.js",
                 "~/Scripts/app/validators/numberValidator.js",
                 "~/Scripts/app/validators/emailValidator.js",

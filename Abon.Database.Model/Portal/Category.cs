@@ -19,6 +19,9 @@ namespace Abon.Database.Model.Portal
 
         public int Right { get; set; }
 
+        public Guid? ImageId {get; set; }
+        public Image Image { get; set; }
+
         public ICollection<Category> Children { get; set; }
  
         public Category Parent { get; set; }

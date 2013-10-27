@@ -12,6 +12,7 @@ using Abon.Interfaces;
 using Abon.Interfaces.Services.Portal;
 using AutoMapper.Internal;
 using System.Web.Mvc;
+using Abon.Database.Model.Portal.Enums;
 
 namespace Abon.BusinessLogic.Services.Portal
 {
@@ -23,9 +24,12 @@ namespace Abon.BusinessLogic.Services.Portal
 
         #region Members
 
-        public UserOffersDto GetOffers(OfferFilterDto filter)
+        public UserOffersDto GetOffers(OfferFilterDto filter, OfferType offerType)
         {
             var offers = UnitOfWork.Repository<Offer>().All();
+
+            offers = offers.Where(el => el.OfferType == offerType);
+
             if (!String.IsNullOrEmpty(filter.Name))
                 offers = offers.Where(el => el.Name.ToLower().Contains(filter.Name.ToLower()));
 

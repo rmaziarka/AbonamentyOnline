@@ -56,6 +56,7 @@
     <Compile Include="Portal\Account\UserRegisterDto.cs" />
     <Compile Include="Portal\Account\ExternalRegistrationDto.cs" />
     <Compile Include="Portal\Home\CategoryDto.cs" />
+    <Compile Include="Portal\Home\ImageDto.cs" />
     <Compile Include="Portal\Home\Filter\OfferFilterDto.cs" />
     <Compile Include="Portal\Home\MenuDto.cs" />
     <Compile Include="Portal\Home\OfferDto.cs" />

@@ -30,7 +30,7 @@ namespace Abon.Areas.Portal.Controllers
 
         public ActionResult Index(OfferFilterDto filter)
         {
-            var model = _offersService.GetOffers(filter);
+            var model = _offersService.GetOffers(filter, OfferType.Individual);
             model.Cities = _offersService.GetOffersCities();
             model.Page = filter.Page;
             model.Take = filter.Take;
@@ -39,7 +39,7 @@ namespace Abon.Areas.Portal.Controllers
 
         public LoweredJsonResult Get(OfferFilterDto filter)
                             {
-                                var dto = _offersService.GetOffers(filter);
+                                var dto = _offersService.GetOffers(filter, OfferType.Individual);
                                 dto.Page = filter.Page;
                                 dto.Take = filter.Take;
             return LoweredJson(dto);

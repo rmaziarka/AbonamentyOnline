@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abon.Database.Model.Portal;
+using Abon.Database.Model.Portal.Enums;
 
 namespace Abon.Database.Initializers.Portal
 {
@@ -21,10 +22,11 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 50,
                             OurPrice = 40,
                             CategoryId = Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2"),
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
+                            
+                            ImageId = null,
                             CreateDate = DateTime.Now,
-                            CityId = Guid.Parse("a5a82340-25a8-4c26-932a-c646ec534d62")
+                            CityId = Guid.Parse("a5a82340-25a8-4c26-932a-c646ec534d62"),
+                            OfferType = OfferType.Individual
                         },
 
                     new Offer
@@ -35,9 +37,10 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 100,
                             OurPrice = 80,
                             CategoryId = Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2"),
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
-                            CreateDate = DateTime.Now
+                            
+                            ImageId = null,
+                            CreateDate = DateTime.Now,
+                            OfferType = OfferType.Individual
                         },
 
                     new Offer
@@ -48,10 +51,11 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 200,
                             OurPrice = 170,
                             CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
+                            
+                            ImageId = null,
                             CreateDate = DateTime.Now,
-                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d")
+                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d"),
+                            OfferType = OfferType.Individual
                         },
 
                     new Offer
@@ -62,9 +66,10 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 150,
                             OurPrice = 130,
                             CategoryId = Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C"),
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
-                            CreateDate = DateTime.Now
+                            
+                            ImageId = null,
+                            CreateDate = DateTime.Now,
+                            OfferType = OfferType.Individual
                         },
 
                     new Offer
@@ -75,9 +80,10 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 180,
                             OurPrice = 120,
                             CategoryId = Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C"),
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
-                            CreateDate = DateTime.Now
+                            
+                            ImageId = null,
+                            CreateDate = DateTime.Now,
+                            OfferType = OfferType.Individual
                         },
                     new Offer
                         {
@@ -87,9 +93,10 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 150,
                             OurPrice = 130,
                             CategoryId = Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C"),
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
-                            CreateDate = DateTime.Now
+                            
+                            ImageId = null,
+                            CreateDate = DateTime.Now,
+                            OfferType = OfferType.Individual
                         },
                     new Offer
                         {
@@ -99,10 +106,11 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 200,
                             OurPrice = 170,
                             CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
+                            
+                            ImageId = null,
                             CreateDate = DateTime.Now,
-                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d")
+                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d"),
+                            OfferType = OfferType.Individual
                         },
 
                     new Offer
@@ -113,10 +121,11 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 200,
                             OurPrice = 170,
                             CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
+                            
+                            ImageId = null,
                             CreateDate = DateTime.Now,
-                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d")
+                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d"),
+                            OfferType = OfferType.Business
                         },
                     new Offer
                         {
@@ -126,13 +135,12 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 50,
                             OurPrice = 40,
                             CategoryId = Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2"),
-                            CompanyLogoUrl = "",
-                            OfferImageUrl = "",
+                            
+                            ImageId = null,
                             CreateDate = DateTime.Now,
-                            CityId = Guid.Parse("a5a82340-25a8-4c26-932a-c646ec534d62")
+                            CityId = Guid.Parse("a5a82340-25a8-4c26-932a-c646ec534d62"),
+                            OfferType = OfferType.Business
                         },
-
-
                 };
         }
     }

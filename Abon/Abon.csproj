@@ -185,6 +185,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Portal\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Portal\Controllers\FileController.cs" />
     <Compile Include="Areas\Portal\Controllers\UserOffersController.cs" />
     <Compile Include="Areas\Portal\Controllers\HomeController.cs" />
     <Compile Include="Areas\Portal\PortalAreaRegistration.cs" />
@@ -207,6 +208,7 @@
     <None Include="Areas\Portal\Views\UserOffers\OfferTemplates\list.cshtml" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\loader.gif" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -274,6 +276,7 @@
     <Content Include="Scripts\angularjs\angular.js" />
     <Content Include="Scripts\angularjs\ui-bootstrap-tpls-0.6.0.js" />
     <Content Include="Scripts\app\common\commonModule.js" />
+    <Content Include="Scripts\app\common\lazyImg.js" />
     <Content Include="Scripts\app\common\spinner.js" />
     <Content Include="Scripts\app\helpers\scopeHelper.js" />
     <Content Include="Scripts\app\Portal\controllers\categoryController.js" />

@@ -34,6 +34,7 @@ namespace Abon.Database
             modelBuilder.Configurations.Add(new OfferMapping());
             modelBuilder.Configurations.Add(new CategoryMapping());
             modelBuilder.Configurations.Add(new CityMapping());
+            modelBuilder.Configurations.Add(new ImageMapping());
             base.OnModelCreating(modelBuilder);
         }
     }

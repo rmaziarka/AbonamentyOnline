@@ -7,7 +7,6 @@ namespace Abon.Database.Mappings.Portal
         public UserMapping()
         {
             Property(m => m.Name).IsRequired().HasMaxLength(30);
-
         }
     }
 }

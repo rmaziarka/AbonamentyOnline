@@ -15,7 +15,9 @@ namespace Abon.Dto.Portal
         public static void Configure()
         {
             Mapper.CreateMap<Category, CategoryDto>();
-            Mapper.CreateMap<Offer, OfferDto>();
+            Mapper.CreateMap<Image, ImageDto>();
+            Mapper.CreateMap<Offer, OfferDto>()
+                .ForMember(el=> el.ImageUrl, m => m.MapFrom(el => "File/GetImage?id="+el.ImageId));
 
             Mapper.CreateMap<City, SelectListItem>()
                 .ForMember(el => el.Text, m => m.MapFrom(el => el.Name))

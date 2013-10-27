@@ -8,7 +8,7 @@ namespace Abon.Dto.Portal.Home
 {
     public class OfferDto
     {
-        public string CompanyLogoUrl { get; set; }
+        public string ImageUrl { get; set; }
 
         public string Name { get; set; }
 
@@ -25,9 +25,6 @@ namespace Abon.Dto.Portal.Home
         }
 
         public string Description { get; set; }
-
-        public string OfferImageUrl { get; set; }
-
 
     }
 }

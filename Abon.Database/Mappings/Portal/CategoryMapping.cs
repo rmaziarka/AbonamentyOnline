@@ -12,6 +12,11 @@ namespace Abon.Database.Mappings.Portal
             Property(m => m.Left).IsRequired();
             Property(m => m.Right).IsRequired();
 
+            HasOptional(el => el.Image)
+                .WithMany(el => el.Categories)
+                .HasForeignKey(m => m.ImageId)
+                .WillCascadeOnDelete(false);
+
             HasOptional(el => el.Parent)
                 .WithMany(el => el.Children)
                 .HasForeignKey(m => m.ParentId)

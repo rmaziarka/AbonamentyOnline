@@ -52,6 +52,7 @@
     <Compile Include="Initializers\Portal\OfferInitializer.cs" />
     <Compile Include="Mappings\Portal\CategoryMapping.cs" />
     <Compile Include="Mappings\Portal\CityMapping.cs" />
+    <Compile Include="Mappings\Portal\ImageMapping.cs" />
     <Compile Include="Mappings\Portal\OfferMapping.cs" />
     <Compile Include="Mappings\Portal\UserLoginMapping.cs" />
     <Compile Include="Mappings\Portal\UserMapping.cs" />
