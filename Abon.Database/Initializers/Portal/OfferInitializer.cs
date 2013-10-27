@@ -67,6 +67,72 @@ namespace Abon.Database.Initializers.Portal
                             CreateDate = DateTime.Now
                         },
 
+                    new Offer
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = "Siłownia Klawy John na 3 miesiące",
+                            Description = "Dzisiejsza walka o lepszą formę to jutrzejsza większość ilość ruchania. Nie czekaj dłużej",
+                            ProducerPrice = 180,
+                            OurPrice = 120,
+                            CategoryId = Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C"),
+                            CompanyLogoUrl = "",
+                            OfferImageUrl = "",
+                            CreateDate = DateTime.Now
+                        },
+                    new Offer
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = "Aurora Fitness Club",
+                            Description = "Zapisz się już dziś by uzyskać upust na nasze SPA.",
+                            ProducerPrice = 150,
+                            OurPrice = 130,
+                            CategoryId = Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C"),
+                            CompanyLogoUrl = "",
+                            OfferImageUrl = "",
+                            CreateDate = DateTime.Now
+                        },
+                    new Offer
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = "Pizza Roma codziennie",
+                            Description = "Coś dla prawdziwych geeków. Codziennie pizza by być zawsze pełen energii.",
+                            ProducerPrice = 200,
+                            OurPrice = 170,
+                            CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
+                            CompanyLogoUrl = "",
+                            OfferImageUrl = "",
+                            CreateDate = DateTime.Now,
+                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d")
+                        },
+
+                    new Offer
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = "Dinette zaprasza",
+                            Description = "Bistro Dinette zaprasza na codzienny lunch.",
+                            ProducerPrice = 200,
+                            OurPrice = 170,
+                            CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
+                            CompanyLogoUrl = "",
+                            OfferImageUrl = "",
+                            CreateDate = DateTime.Now,
+                            CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d")
+                        },
+                    new Offer
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = "Abonament telefoniczny Orange",
+                            Description = "Orange dalej ma chujowe oferty ale i tak się tutaj znalazło.",
+                            ProducerPrice = 50,
+                            OurPrice = 40,
+                            CategoryId = Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2"),
+                            CompanyLogoUrl = "",
+                            OfferImageUrl = "",
+                            CreateDate = DateTime.Now,
+                            CityId = Guid.Parse("a5a82340-25a8-4c26-932a-c646ec534d62")
+                        },
+
+
                 };
         }
     }

@@ -2,13 +2,23 @@
     .controller('offersController', ['$scope', 'scopeHelper', 'offersService', function($scope, helper, service) {
 
         helper.addDataToScope($scope, 'userOffersData');
+            
+        $scope.categoryHeaderHidden = function () {
+            return $scope.selectedCategory.parentId == null;
+        }
 
-        $scope.categoryHeaderVisible = $scope.selectedCategory.parentId === null;
+
         $scope.categoryId = $scope.selectedCategory.id;
         $scope.template = 'three.html';
 
         $scope.$on('offers-categoryClicked', function (event, categoryId) {
             $scope.categoryId = categoryId;
+
+            getOffers();
+        });
+
+        $scope.$on('offers-pageClicked', function (event, page) {
+            $scope.page = page;
 
             getOffers();
         });
@@ -33,6 +43,7 @@
                 priceTo: $scope.priceTo,
                 priceFrom: $scope.priceFrom,
                 cityId: $scope.cityId,
+                page:$scope.page
             };
             return params;
         }

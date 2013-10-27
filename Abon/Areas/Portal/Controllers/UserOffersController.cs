@@ -26,20 +26,22 @@ namespace Abon.Areas.Portal.Controllers
         public ActionResult Test()
         {
             return View();
-        }   
+        }
 
-        public ActionResult Index(Guid? categoryId, string name = null)
+        public ActionResult Index(OfferFilterDto filter)
         {
-            var model = _offersService.GetOffers(new OfferFilterDto() {CategoryId = categoryId, Name = name});
-
+            var model = _offersService.GetOffers(filter);
             model.Cities = _offersService.GetOffersCities();
-
+            model.Page = filter.Page;
+            model.Take = filter.Take;
             return View(model);
         }
 
         public LoweredJsonResult Get(OfferFilterDto filter)
                             {
-            var dto = _offersService.GetOffers(filter);
+                                var dto = _offersService.GetOffers(filter);
+                                dto.Page = filter.Page;
+                                dto.Take = filter.Take;
             return LoweredJson(dto);
         }
 

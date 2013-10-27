@@ -1,1 +1,1 @@
-﻿var serviceModule = angular.module('Abon.Portal.services',[]);
+﻿var serviceModule = angular.module('Abon.Portal.services',['common']);

@@ -4,8 +4,9 @@
 @{
     ViewBag.Title = "Oferty";
 }
+
 <div class="row" ng-controller="offersController">
-    <div class="span12" style="height: 50px"><span ng-show="categoryHeaderVisible">Kategoria {{selectedCategory.name}} - </span>{{offers.total}} produktów</div>
+    <div class="span12" style="height: 50px"><span ng-hide="categoryHeaderHidden()">Kategoria {{selectedCategory.name}} - </span>{{offers.total}} produktów</div>
     <div class="span3">
         @Html.Partial("_Partials/_Categories")
         @Html.Partial("_Partials/_Filter")
@@ -16,8 +17,10 @@
             <a href="#" ng-click="changeView('three.html')">Trzy</a>
             <a href="#" ng-click="changeView('list.html')">Lista</a>
         </div>
-        <div data-ng-include="template">
-        </div>   
+            <div data-ng-include="template">
+            </div>
+        <div class="clearfix"></div>        
+        @Html.Partial("_Partials/_Pager")
     </div>
     
 

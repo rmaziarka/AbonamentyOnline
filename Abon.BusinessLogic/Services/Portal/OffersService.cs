@@ -52,6 +52,10 @@ namespace Abon.BusinessLogic.Services.Portal
 
             var selectedCategory = GetCategoryWithChildren(category, offers);
 
+            offers = offers
+                .OrderBy(el => el.Name)
+                .Skip(filter.Skip)
+                .Take(filter.Take);
 
             var list = offers.Map <IEnumerable<OfferDto>>();
 

@@ -273,12 +273,15 @@
     <Content Include="Scripts\angularjs\angular-mocks.js" />
     <Content Include="Scripts\angularjs\angular.js" />
     <Content Include="Scripts\angularjs\ui-bootstrap-tpls-0.6.0.js" />
+    <Content Include="Scripts\app\common\commonModule.js" />
+    <Content Include="Scripts\app\common\spinner.js" />
     <Content Include="Scripts\app\helpers\scopeHelper.js" />
     <Content Include="Scripts\app\Portal\controllers\categoryController.js" />
     <Content Include="Scripts\app\Portal\controllers\controllerModule.js" />
     <Content Include="Scripts\app\Portal\controllers\filterController.js" />
     <Content Include="Scripts\app\Portal\controllers\menuController.js" />
     <Content Include="Scripts\app\Portal\controllers\offersController.js" />
+    <Content Include="Scripts\app\Portal\controllers\pagerController.js" />
     <Content Include="Scripts\app\Portal\main.js" />
     <Content Include="Scripts\app\Portal\services\offersService.js" />
     <Content Include="Scripts\app\Portal\services\serviceModule.js" />
@@ -304,6 +307,7 @@
     <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Categories.cshtml" />
     <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Filter.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_Partials\Header.cshtml" />
+    <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Pager.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -317,6 +321,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\spin.js" />
     <Content Include="Scripts\test\helpers\windowDataHelperTest.js" />
     <Content Include="Scripts\test\Portal\controllers\offersControllerTest.js" />
     <Content Include="Scripts\_references.js" />
