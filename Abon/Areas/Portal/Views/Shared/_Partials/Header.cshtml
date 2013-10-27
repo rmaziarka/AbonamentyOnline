@@ -10,11 +10,18 @@
             <a href="@Url.Action("Index", "Home")" class="brand">
                 <img src="/img/logo.png" />
             </a>
+           
             <ul class="nav pull-right">
                 @Html.Partial("_LoginPartial")
                 <div class="search-main">
-                    <input type="text" class="main-search" placeholder="szukaj.." />
-                    <input type="button" class="search btn" value="" />
+                    <form>
+                        <div id="searchinout">
+                            <input id="main-search" type="search" placeholder="Szukaj..." />
+                            <input type="button" class="search btn" value="" />
+                        </div>
+                    </form>
+                    
+                    
                 </div>
             </ul>
             <div class="clearfix"></div>
@@ -43,3 +50,48 @@
         </div>
     </div>
 </div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+    var inputWdith = '200px';
+    var inputWdithReturn = '140px';
+
+    $(document).ready(function () {
+        $('#main-search').focus(function () {
+            //clear the text in the box.
+            $(this).val(function () {
+                $(this).val('');
+            });
+            //animate the box
+            $(this).animate({
+                width: inputWdith
+            }, 500)
+        });
+
+        $('#main-search').blur(function () {
+            $(this).val('Szukaj...');
+            $(this).animate({
+                width: inputWdithReturn
+            }, 500)
+        });
+    });
+
+
+    //....................................
+
+    $(function () {
+        //sticky menu
+        var headHeight = $('.menu-bg').outerHeight();
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > headHeight) {
+                $('.brand').addClass('stickyLogo');
+                $('.menu-bg').addClass('stick2top');
+            } else {
+                $('.brand').removeClass('stickyLogo');
+                $('.menu-bg').removeClass('stick2top');
+                
+            }
+        });
+        
+    });
+
+</script>

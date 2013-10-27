@@ -1025,7 +1025,7 @@ pre code {
 }
 
 form {
-  margin: 0 0 20px;
+  margin: 0 0 5px;
 }
 
 fieldset {
@@ -4516,7 +4516,7 @@ input[type="submit"].btn.btn-mini {
 
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  position: fixed;
+  position: absolute;
   right: 0;
   left: 0;
   z-index: 1030;
@@ -6135,7 +6135,7 @@ a.badge:focus {
 
 
 /*--------------------//search//---------------------*/
-input[type="text"].main-search {
+#main-search {
 border:none;
 border-bottom:1px solid #8a2f8b;
 background:none;
@@ -6175,3 +6175,31 @@ header{height:100px;}
 .main-search::-moz-placeholder { color:#C9C9C9; } /* firefox 19+ */
 .main-search:-ms-input-placeholder { color:#C9C9C9; } /* ie */
 .main-searchinput:-moz-placeholder { color:#C9C9C9; }
+
+#searchinout input#main-search{
+    width:140px;
+    color:#999;
+}
+.nav.log-menu{
+    float:right;
+
+
+}
+ .stick2top {
+    width: 100%;
+    position: fixed;
+    top: -60px;
+    opacity:0.9;
+}
+.stickyLogo {
+    position: fixed;
+    top: 0px;
+    left:0px;
+    width:50px;
+    height:20px;
+    background:#333;
+    z-index:1234;
+}
+    .stickyLogo img {
+    display:none;
+    }
