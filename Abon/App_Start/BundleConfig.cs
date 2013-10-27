@@ -21,7 +21,9 @@ namespace Abon
 
             bundles.Add(new ScriptBundle("~/bundles/core").Include(
                 "~/Scripts/jquery-1.8.2.js",
-                "~/Scripts/spin.js"
+                "~/Scripts/spin.js",
+                "~/Scripts/jquery.menu-aim.js",
+                "~/Scripts/bootstrap.js"
                 ));
             bundles.Add(new ScriptBundle("~/bundles/angularjs").Include(
                 "~/Scripts/angularjs/angular.js",
