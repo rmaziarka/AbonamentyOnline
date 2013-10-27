@@ -2911,7 +2911,6 @@ table th[class*="span"],
   float: left;
   min-width: 160px;
   padding: 5px 0;
-  margin: 2px 0 0;
   list-style: none;
   background-color: #ffffff;
   border: 1px solid #ccc;
@@ -6202,7 +6201,7 @@ header{height:100px;}
     width: 100%;
     position: fixed;
     top: -60px;
-    opacity:0.9;
+    opacity:0.98;
 }
 .stickyLogo {
     position: fixed;
@@ -6216,3 +6215,4 @@ header{height:100px;}
     .stickyLogo img {
     display:none;
     }
+    ul.dropdown-menu{min-height:200px;}
