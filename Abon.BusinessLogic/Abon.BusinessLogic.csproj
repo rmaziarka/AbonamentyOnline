@@ -70,6 +70,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\Portal\ClaimService.cs" />
+    <Compile Include="Services\Portal\CategoryService.cs" />
     <Compile Include="Services\Portal\FileService.cs" />
     <Compile Include="Services\Portal\OffersService.cs" />
     <Compile Include="Services\Portal\UserService.cs" />

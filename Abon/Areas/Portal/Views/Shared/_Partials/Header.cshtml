@@ -62,87 +62,88 @@
                 </div>
             </ul>
             <div class="clearfix"></div>
-                <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <div class="nav-collapse collapse">
-                    <div class="menu-bg">
-                        <ul class="nav menu">
-                            <li class="item active">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("test", "test", "Home")">
-                                    <img src="/img/ikonatest.png" />
-                                    <p> menu1</p>
-                                </a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li data-submenu-id="submenu-patas">
-                                        <a href="#">Patas</a>
+            @Html.Action("Menu", "Home", null)
 
-                                        <div id="submenu-patas" class="popover">
-                                            <h3 class="popover-title">Patas</h3>
-                                            <div class="popover-content"><img src="/img/colobus.png"></div>
-                                        </div>
-                                    </li>
-                                    <li data-submenu-id="submenu-snub-nosed">
-                                        <a href="#">Golden Snub-Nosed</a>
-                                        <div id="submenu-snub-nosed" class="popover">
-                                            <h3 class="popover-title">Golden Snub-Nosed</h3>
-                                            <div class="popover-content"><img src="/img/colobus.png"></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="active">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("test", "test", "Home")">
-                                    <img src="/img/ikonatest.png" />
-                                    <p> menu2</p>
-                                </a>
+            @*<div class="nav-collapse collapse">
+                <div class="menu-bg">
+                    <ul class="nav menu">
+                        <li class="item active">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("test", "test", "Home")">
+                                <img src="/img/ikonatest.png" />
+                                <p> menu1</p>
+                            </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    <li data-submenu-id="submenu-patas1">
-                                        <a href="#">Patas1</a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li data-submenu-id="submenu-patas">
+                                    <a href="#">Patas</a>
 
-                                        <div id="submenu-patas1" class="popover">
-                                            <h3 class="popover-title">Patas1</h3>
-                                            <div class="popover-content"><img src="/img/colobus.png"></div>
-                                        </div>
-                                    </li>
-                                    <li data-submenu-id="submenu-snub-nosed1">
-                                        <a href="#">Golden Snub-Nosed1</a>
-                                        <div id="submenu-snub-nosed1" class="popover">
-                                            <h3 class="popover-title">Golden Snub-Nosed1</h3>
-                                            <div class="popover-content"><img src="/img/colobus.png"></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                                    <div id="submenu-patas" class="popover">
+                                        <h3 class="popover-title">Patas</h3>
+                                        <div class="popover-content"><img src="/img/colobus.png"></div>
+                                    </div>
+                                </li>
+                                <li data-submenu-id="submenu-snub-nosed">
+                                    <a href="#">Golden Snub-Nosed</a>
+                                    <div id="submenu-snub-nosed" class="popover">
+                                        <h3 class="popover-title">Golden Snub-Nosed</h3>
+                                        <div class="popover-content"><img src="/img/colobus.png"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="active">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="@Url.Action("test", "test", "Home")">
+                                <img src="/img/ikonatest.png" />
+                                <p> menu2</p>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li data-submenu-id="submenu-patas1">
+                                    <a href="#">Patas1</a>
+
+                                    <div id="submenu-patas1" class="popover">
+                                        <h3 class="popover-title">Patas1</h3>
+                                        <div class="popover-content"><img src="/img/colobus.png"></div>
+                                    </div>
+                                </li>
+                                <li data-submenu-id="submenu-snub-nosed1">
+                                    <a href="#">Golden Snub-Nosed1</a>
+                                    <div id="submenu-snub-nosed1" class="popover">
+                                        <h3 class="popover-title">Golden Snub-Nosed1</h3>
+                                        <div class="popover-content"><img src="/img/colobus.png"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
 
                 @*<li>
-            <img src="/img/ikonatest.png" />
-            @Html.ActionLink("Home", "Index", "Home")
-                        <div id="submenu-king-colobus" class="popover">
-                            <h3 class="popover-title">King Colobus</h3>
-                            <div class="popover-content"><img src="img/colobus.png"></div>
-                    </li>
-                    <li>
-                        <img src="/img/ikonatest.png" />
-                        @Html.ActionLink("About", "About", "Home")
-                                </li>
-                                <li>
-                                    <img src="/img/ikonatest.png" />
-                                    @Html.ActionLink("Contact", "Contact", "Home")
-                                            </li>*@
+                    <img src="/img/ikonatest.png" />
+                    @Html.ActionLink("Home", "Index", "Home")
+                                <div id="submenu-king-colobus" class="popover">
+                                    <h3 class="popover-title">King Colobus</h3>
+                                    <div class="popover-content"><img src="img/colobus.png"></div>
+                            </li>
+                            <li>
+                                <img src="/img/ikonatest.png" />
+                                @Html.ActionLink("About", "About", "Home")
+                                        </li>
+                                        <li>
+                                            <img src="/img/ikonatest.png" />
+                                            @Html.ActionLink("Contact", "Contact", "Home")
+                                                    </li>*@
 
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+
 
 <script>
     var $menu = $(".dropdown-menu");

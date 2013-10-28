@@ -205,6 +205,8 @@
   <ItemGroup>
     <Content Include="Areas\Portal\Views\UserOffers\OfferTemplates\two.cshtml" />
     <Content Include="Areas\Portal\Views\UserOffers\OfferTemplates\three.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\_Partials\_MainCategories.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\_Partials\_SubCategories.cshtml" />
     <None Include="Areas\Portal\Views\UserOffers\OfferTemplates\list.cshtml" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
@@ -306,7 +308,7 @@
     <Content Include="Areas\Portal\Views\Account\Manage.cshtml" />
     <Content Include="Areas\Portal\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Portal\Views\Home\Test.cshtml" />
-    <Content Include="Areas\Portal\Views\Home\_Partials\Menu.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\_Partials\Menu.cshtml" />
     <Content Include="Areas\Portal\Views\UserOffers\Index.cshtml" />
     <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Categories.cshtml" />
     <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Filter.cshtml" />
@@ -347,6 +349,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Portal\Models\" />
+    <Folder Include="Areas\Portal\Views\Home\_Partials\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AbonContext.cs" />
     <Compile Include="BaseMapping.cs" />
+    <Compile Include="Helpers\CategoryRangeSetter.cs" />
     <Compile Include="Initializers\AbonDatabaseInitializer.cs" />
     <Compile Include="Initializers\IDbInitializer.cs" />
     <Compile Include="Initializers\Portal\CategoryInitializer.cs" />

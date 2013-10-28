@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Abon.Dto.Portal.Home.CategoryDto>
+
+<ul class="nav menu">
+    @foreach (var category in Model)
+    {
+        <li class="categoryItem" ng-mouseenter="openMenu('@category.Id','@category.Children.First().Id')" ng-mouseleave="closeMenu()" style="height:100px">
+            <div>
+                <img src="/img/ikonatest.png" />
+                <p>@category.Name</p>
+            </div>
+        </li>
+    }
+</ul>

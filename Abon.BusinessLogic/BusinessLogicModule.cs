@@ -15,6 +15,7 @@ namespace Abon.BusinessLogic
         public override void Load()
         {
             Bind<IFileService>().To<FileService>();
+            Bind<ICategoryService>().To<CategoryService>();
             Bind<IUserService>().To<UserService>();
             Bind<IClaimService>().To<ClaimService>();
             Bind<IOffersService>().To<OffersService>();
