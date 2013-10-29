@@ -21,7 +21,7 @@ namespace Abon.Database
         public AbonContext()
         {
             Database.Connection.ConnectionString =
-                @"Data Source=SIARAPC\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
+                @"Data Source=meftastyle\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
 
 
         }

@@ -1,33 +1,12 @@
 ﻿@using Abon.HtmlHelpers
 @model Abon.Dto.Portal.Home.MenuDto
 
-<style>
-    .subcategoryDiv {
-        position: absolute;
-        background: white;
-        border: 1px solid;
-        border-color: black;
-        top: 40px;
-        width: 100%;
-    }
+<div class="menu-bg">
+    <div class="nav-collapse collapse" data-ng-controller="menuController">
 
-    .categoryItem {
-        width: 200px;
-    }
+        @Html.Partial("_Partials/_MainCategories", Model.Categories)
 
-        .categoryItem div {
-            width: 100px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-</style>
-
-<div class="nav-collapse collapse" data-ng-controller="menuController">
-    <div class="menu-bg">
-
-        @Html.Partial("_Partials/_MainCategories",Model.Categories)
-
-        @Html.Partial("_Partials/_SubCategories", Model.Categories)
+        
 
     </div>
 </div>
