@@ -1,1 +1,1 @@
-﻿var commonModule = angular.module('common', []);
+﻿var commonModule = angular.module('Abon.common', []);

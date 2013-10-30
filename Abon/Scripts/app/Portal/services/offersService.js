@@ -1,4 +1,4 @@
-﻿serviceModule
+﻿portalServiceModule
 .service('offersService', ['$http','$q','spinner', function ($http,$q,spinner) {
 
     return {

@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Abon.Database.Model;
+using System.Data.Entity.ModelConfiguration.Configuration;
+using System.Data.Entity.ModelConfiguration.Configuration.Properties.Primitive;
+using System.Linq.Expressions;
 
 namespace Abon.Database
 {

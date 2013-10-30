@@ -45,12 +45,12 @@ namespace Abon.BusinessLogic.Services.Portal
             SignUserInApp(context, user, isPersistent, claims);
         }
 
-        public void SignUserInApp(HttpContextBase context, string userName, bool isPersistent, IEnumerable<Claim> claims = null)
+        public void SignUserInApp(HttpContextBase context, string nameOrEmail, bool isPersistent, IEnumerable<Claim> claims = null)
         {
             var user = _unitOfWork
                 .Repository<User>()
                 .All()
-                .FirstOrDefault(el => el.Name == userName);
+                .FirstOrDefault(el => el.Name == nameOrEmail || el.Email == nameOrEmail);
 
             if (user == null) 
                 return;

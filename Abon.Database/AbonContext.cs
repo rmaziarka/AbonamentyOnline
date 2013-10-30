@@ -23,7 +23,6 @@ namespace Abon.Database
             Database.Connection.ConnectionString =
                 @"Data Source=meftastyle\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
 
-
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

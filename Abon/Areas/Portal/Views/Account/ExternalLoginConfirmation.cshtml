@@ -1,32 +1,56 @@
-@model Abon.Dto.Portal.Account.ExternalRegistrationDto
-    ViewBag.Title = "Register";
-}
+@using Abon.HtmlHelpers
 
+@model Abon.Dto.Portal.Account.ExternalLoginDto
+@{
+    ViewBag.Title = "Logowanie";
+}
 <hgroup>
     <h2>@ViewBag.Title.</h2>
-    <h3>Associate your @Model.LoginProvider account.</h3>
+    <h3>Po³¹czenie z serwisem @Model.LoginProvider.</h3>
 </hgroup>
+<div ng-controller="externalRegisterController">
+    @using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { name = "externalLoginForm" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-@using (Html.BeginForm("ExternalLoginConfirmation", "Account", new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Association Form</legend>
+            <p class="text-success">
+                Z sukcesem zalogowa³eœ siê przez serwis <strong>@Model.LoginProvider</strong>.
+                Podaj swoj¹ nazwê u¿ytkownika i has³o, a nastêpnie kliknij Zaloguj aby siê zarejestrowaæ siê do Abonu.
+            </p>
+            <div class="control-group">
+                @Html.Label("Nazwa u¿ytkownika", new { @class = "control-label" })
+                <div class="controls">
+                    <input ng-model="name" id="name" name="name" class="form-control" unique="name" type="text" data-ng-maxlength="30" placeholder="Nazwa u¿ytkownika" ng-required="true" />
+                    <div class="validation-summary-errors">
+                        <div data-ng-show="externalLoginForm.name.$error.maxlength && externalLoginForm.name.$dirty">Nazwa u¿ytkownika mo¿e mieæ maksymalnie 30 znaków.</div>
+                        <div data-ng-show="externalLoginForm.name.$error.unique">Nazwa u¿ytkownika ju¿ istnieje w systemie.</div>
+                        <div data-ng-show="externalLoginForm.name.$error.required">Nazwa u¿ytkownika jest wymagana.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.Label("Email", new { @class = "control-label" })
+                <div class="controls">
+                    <input ng-model="email" email id="email" name="email" class="form-control" type="text" unique="email" data-ng-maxlength="250" placeholder="Email" ng-required="true" />
+                    <div class="validation-summary-errors">
+                        <div data-ng-show="externalLoginForm.email.$error.maxlength && externalLoginForm.email.$dirty">Email mo¿e mieæ maksymalnie 250 znaków.</div>
+                        <div data-ng-show="externalLoginForm.email.$error.unique && externalLoginForm.email.$dirty">Email ju¿ istnieje w systemie.</div>
+                        <div data-ng-show="externalLoginForm.email.$error.email && externalLoginForm.email.$dirty">Email podany nie jest prawid³owy.</div>
+                        <div data-ng-show="externalLoginForm.email.$error.required">Email jest wymagany.</div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            @Html.HiddenFor(m => m.LoginProvider)
+            <input ng-disabled="externalLoginForm.$invalid" type="submit" class="btn" value="Zaloguj" />
+        </fieldset>
+    }
+</div>
 
-    <fieldset>
-        <legend>Association Form</legend>
-       <p class="text-success">
-            You've successfully authenticated with <strong>@Model.LoginProvider</strong>.
-            Please enter a user name for this site below and click the Register button to finish
-            logging in.
-        </p>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
-                @Html.ValidationMessageFor(m => m.UserName)
-        <br />
-        @Html.HiddenFor(m => m.LoginProvider)
-        <input type="submit" class="btn" value="Register" />
-    </fieldset>
-}
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+<script>
+    window.externalLoginData = @Html.ToCamelCaseJson(Model)
+</script>

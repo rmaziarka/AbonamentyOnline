@@ -1,1 +1,1 @@
-﻿var validatorModule = angular.module('Abon.validators', []);
+﻿var validatorModule = angular.module('Abon.validators', ['Abon.services']);
