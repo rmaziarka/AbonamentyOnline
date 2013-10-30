@@ -15,8 +15,8 @@ namespace Abon
 
             // Uncomment the following lines to enable logging in with third party login providers
             //app.UseMicrosoftAccountAuthentication(
-            //    clientId: "",
-            //    clientSecret: "");
+            //    clientId: "000000004C106958",
+            //    clientSecret: "EEHKA7aTQqQD3PFXrKghHgpOHNmaZRZi");
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",
@@ -26,7 +26,7 @@ namespace Abon
                appId: "157356027785034",
                appSecret: "e6773d7781ba17a2d8333a972cdb77d0");
 
-            //app.UseGoogleAuthentication();
+            app.UseGoogleAuthentication();
         }
     }
 }

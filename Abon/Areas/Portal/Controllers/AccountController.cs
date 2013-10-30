@@ -12,19 +12,23 @@ using Abon.Interfaces.Services.Portal;
 using Abon.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
+using Abon.Core;
+using Abon.Interfaces;
 
 namespace Abon.Areas.Portal.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : AbonController
     {
         private IClaimService _claimService;
+        private IUnitOfWork _unitOfWork;
         private IUserService _userService { get; set; }
 
-        public AccountController(IUserService userService, IClaimService claimService)
+        public AccountController(IUserService userService, IClaimService claimService, IUnitOfWork unitOfWork)
         {
             _userService = userService;
             _claimService = claimService;
+            _unitOfWork = unitOfWork; 
         }
 
         public IUserSecretStore Secrets { get; private set; }
@@ -37,9 +41,7 @@ namespace Abon.Areas.Portal.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            var model = new LoginViewModel();
-            model.UserName = "Mati";
-            model.Password = "123";
+            var model = new UserLoginDto();
             
             return View(model);
         }
@@ -49,20 +51,19 @@ namespace Abon.Areas.Portal.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel model, string returnUrl)
+        public ActionResult Login(UserLoginDto model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                // Validate the user password
-                if (_userService.Validate(model.UserName, model.Password))
+                if (_userService.Validate(model.NameOrEmail, model.Password))
                 {
-                    _claimService.SignUserInApp(HttpContext, model.UserName, model.RememberMe);
+                    _claimService.SignUserInApp(HttpContext, model.NameOrEmail, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }
             }
 
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError(String.Empty, "The user name or password provided is incorrect.");
+            ModelState.AddModelError(String.Empty, "Podany nieprawidłowy email lub hasło, spróbuj ponownie.");
+            model.Password = null;
             return View(model);
         }
 
@@ -96,6 +97,28 @@ namespace Abon.Areas.Portal.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+        [AllowAnonymous]
+        public LoweredJsonResult CheckUnique(string value, string type)
+        {
+            var unique = type == "email"
+                ? CheckEmailUnique(value)
+                : CheckNameUnique(value);
+
+            return LoweredJson(new { Unique = unique });
+        }
+
+        private bool CheckEmailUnique(string email)
+        {
+            var query = _unitOfWork.Repository<Abon.Database.Model.Portal.User>().All();
+            return !query.Any(el => el.Email.ToLower() == email.ToLower());
+        }
+
+        private bool CheckNameUnique(string name)
+        {
+            var query = _unitOfWork.Repository<Abon.Database.Model.Portal.User>().All();
+            return !query.Any(el => el.Name.ToLower() == name.ToLower());
         }
 
         //
@@ -227,7 +250,6 @@ namespace Abon.Areas.Portal.Controllers
             {
                 return View("ExternalLoginFailure");
             }
-
             // Make sure the external identity is from the loginProvider we expect
             Claim providerKeyClaim = id.FindFirst(ClaimTypes.NameIdentifier);
             if (providerKeyClaim == null || providerKeyClaim.Issuer != loginProvider)
@@ -253,7 +275,7 @@ namespace Abon.Areas.Portal.Controllers
                 {
                     ViewBag.ReturnUrl = returnUrl;
                     return View("ExternalLoginConfirmation",
-                        new ExternalRegistrationDto { UserName = id.Name, LoginProvider = loginProvider });
+                        new ExternalLoginDto { Name = id.Name, LoginProvider = loginProvider });
                 }
             }
 
@@ -265,7 +287,7 @@ namespace Abon.Areas.Portal.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalRegistrationDto model,
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginDto model,
             string returnUrl)
         {
             if (User.Identity.IsAuthenticated)

@@ -1,33 +1,40 @@
-@model Abon.Models.LoginViewModel
+@model Abon.Dto.Portal.Account.UserLoginDto
 
 @{
-    ViewBag.Title = "Log in";
+    ViewBag.Title = "Logowanie";
 }
+
+@using Abon.HtmlHelpers
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
 </hgroup>
 <div class="row-fluid">
-    <div class="span6">
+    <div class="span6" ng-controller="loginController">
         <section id="loginForm">
-            @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl }))
+            @using (Html.BeginForm("Login","Account",new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { name = "loginForm" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true)
                 <fieldset class="form-horizontal">
                     <legend>Use a local account to log in.</legend>
                     <div class="control-group">
-                        @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                        @Html.Label("Email lub nazwa u¿ytkownika", new { @class = "control-label" })
                         <div class="controls">
-                            @Html.TextBoxFor(m => m.UserName)
-                            @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "help-inline" })
+                            <input ng-model="nameOrEmail" id="nameOrEmail" name="nameOrEmail" class="form-control" type="text" placeholder="Email lub nazwa u¿ytkownika" ng-required="true" />
+                            <div class="validation-summary-errors">
+                                <div data-ng-show="loginForm.nameOrEmail.$error.required">Email lub nazwa u¿ytkownika jest wymagana</div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="control-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                        @Html.Label("Has³o", new { @class = "control-label" })
                         <div class="controls">
-                            @Html.PasswordFor(m => m.Password)
-                            @Html.ValidationMessageFor(m => m.Password, null, new { @class = "help-inline" })
+                            <input ng-model="password" id="password" name="password" class="form-control" type="password" placeholder="Has³o" ng-required="true" />
+                            <div class="validation-summary-errors">
+                                <div data-ng-show="loginForm.password.$error.required">Has³o jest wymagane.</div>
+                            </div>
                         </div>
                     </div>
                     <div class="control-group">
@@ -39,11 +46,11 @@
                         </div>
                     </div>
                     <div class="form-actions no-color">
-                        <input type="submit" value="Log in" class="btn" />
+                        <input ng-disabled="loginForm.$invalid" type="submit" value="Zaloguj" class="btn" />
                     </div>
                 </fieldset>
                 <p>
-                    @Html.ActionLink("Register", "Register") if you don't have a local account.
+                    @Html.ActionLink("Zarejestruj", "Register") siê, jeœli nie masz lokalnego konta.
                 </p>
             }
         </section>
@@ -55,6 +62,7 @@
         </section>
     </div>
 </div>
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+
+<script>
+    window.loginData = @Html.ToCamelCaseJson(Model)
+</script>

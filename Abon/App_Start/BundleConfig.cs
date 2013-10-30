@@ -37,9 +37,13 @@ namespace Abon
                 "~/Scripts/app/common/commonModule.js",
                 "~/Scripts/app/common/spinner.js",
                 "~/Scripts/app/common/lazyImg.js",
+                "~/Scripts/app/services/serviceModule.js",
+                "~/Scripts/app/services/validatorService.js",
                 "~/Scripts/app/validators/validatorModule.js",
                 "~/Scripts/app/validators/numberValidator.js",
                 "~/Scripts/app/validators/emailValidator.js",
+                "~/Scripts/app/validators/uniqueValidator.js",
+                "~/Scripts/app/validators/compareValidator.js",
                 "~/Scripts/app/Portal/services/serviceModule.js",
                 "~/Scripts/app/Portal/services/offersService.js",
                 "~/Scripts/app/Portal/controllers/controllerModule.js",
@@ -48,6 +52,9 @@ namespace Abon
                 "~/Scripts/app/Portal/controllers/filterController.js",
                 "~/Scripts/app/Portal/controllers/offersController.js",
                 "~/Scripts/app/Portal/controllers/pagerController.js",
+                "~/Scripts/app/Portal/controllers/registerController.js",
+                "~/Scripts/app/Portal/controllers/externalLoginController.js",
+                "~/Scripts/app/Portal/controllers/loginController.js",
                 "~/Scripts/app/Portal/main.js"
                 ));
 

@@ -11,6 +11,6 @@ namespace Abon.Interfaces.Services.Portal
         bool UserLoginExists(string loginProvider, string providerKey);
         void AddUserLoginToExistingUser(Guid userId, string loginProvider, string providerKey);
 
-        bool ExternalRegistration(ExternalRegistrationDto model, string providerKey);
+        bool ExternalRegistration(ExternalLoginDto model, string providerKey);
     }
 }

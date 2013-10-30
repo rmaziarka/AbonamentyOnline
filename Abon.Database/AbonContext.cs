@@ -22,8 +22,7 @@ namespace Abon.Database
         {
             Database.Connection.ConnectionString =
                 @"Data Source=SIARAPC\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
-
-
+           
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

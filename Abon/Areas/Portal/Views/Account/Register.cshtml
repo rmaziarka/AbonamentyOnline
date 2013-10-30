@@ -1,40 +1,74 @@
 @model Abon.Dto.Portal.Account.UserRegisterDto
 @{
-    ViewBag.Title = "Register";
+    ViewBag.Title = "Rejestracja";
 }
-
+@using Abon.HtmlHelpers
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
 </hgroup>
 
-@using (Html.BeginForm())
-{
+<form name="registerForm" action="/Account/Register" method="post" ng-controller="registerController">
+
+
     @Html.AntiForgeryToken()
     @Html.ValidationSummary()
-    
+
     <fieldset class="form-horizontal">
-        <legend>Create a new account.</legend>
+        <legend>Stwórz swoje konto.</legend>
         <div class="control-group">
-            @Html.LabelFor(m => m.Name, new { @class = "control-label" })
+            @Html.Label("Nazwa u¿ytkownika", new { @class = "control-label" })
             <div class="controls">
-                @Html.TextBoxFor(m => m.Name)
+                <input ng-model="name" id="name" name="name" class="form-control" unique="name" type="text" data-ng-maxlength="30" placeholder="Nazwa u¿ytkownika" ng-required="true" />
+                <div class="validation-summary-errors">
+                    <div data-ng-show="registerForm.name.$error.maxlength && registerForm.name.$dirty">Nazwa u¿ytkownika mo¿e mieæ maksymalnie 30 znaków.</div>
+                    <div data-ng-show="registerForm.name.$error.unique && registerForm.name.$dirty">Nazwa u¿ytkownika ju¿ istnieje w systemie.</div>
+                    <div data-ng-show="registerForm.name.$error.required">Nazwa u¿ytkownika jest wymagana.</div>
+                </div>
             </div>
         </div>
         <div class="control-group">
-            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+            @Html.Label("Email", new { @class = "control-label" })
             <div class="controls">
-                @Html.PasswordFor(m => m.Password)
+                <input ng-model="email" email id="email" name="email" class="form-control" type="text" unique="email" data-ng-maxlength="250" placeholder="Email" ng-required="true" />
+                <div class="validation-summary-errors">
+                    <div data-ng-show="registerForm.email.$error.maxlength && registerForm.email.$dirty">Email mo¿e mieæ maksymalnie 250 znaków.</div>
+                    <div data-ng-show="registerForm.email.$error.unique && registerForm.email.$dirty">Email ju¿ istnieje w systemie.</div>
+                    <div data-ng-show="registerForm.email.$error.email && registerForm.email.$dirty">Email podany nie jest prawid³owy.</div>
+                    <div data-ng-show="registerForm.email.$error.required">Email jest wymagany.</div>
+                </div>
             </div>
         </div>
+
         <div class="control-group">
-            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+            @Html.Label("Has³o", new { @class = "control-label" })
             <div class="controls">
-                @Html.PasswordFor(m => m.ConfirmPassword)
+                <input ng-model="password" id="password" name="password" class="form-control" type="password" data-ng-maxlength="30" placeholder="Has³o" ng-required="true" />
+                <div class="validation-summary-errors">
+                    <div data-ng-show="registerForm.password.$error.maxlength && registerForm.password.$dirty">Has³o mo¿e mieæ maksymalnie 30 znaków.</div>
+                    <div data-ng-show="registerForm.password.$error.required">Has³o jest wymagany.</div>
+                </div>
             </div>
         </div>
+
+
+        <div class="control-group">
+            @Html.Label("Powtórz has³o", new { @class = "control-label" })
+            <div class="controls">
+                <input ng-model="confirmPassword" id="confirmPassword" name="confirmPassword" compare="password" class="form-control" type="password" data-ng-maxlength="30" placeholder="Powtórz has³o" ng-required="true" />
+                <div class="validation-summary-errors">
+                    <div data-ng-show="registerForm.confirmPassword.$error.maxlength && registerForm.confirmPassword.$dirty">Powtórz has³o mo¿e mieæ maksymalnie 30 znaków.</div>
+                    <div data-ng-show="registerForm.confirmPassword.$error.compare && registerForm.confirmPassword.$dirty">Has³a nie s¹ identyczne.</div>
+                    <div data-ng-show="registerForm.confirmPassword.$error.required">Powtórz has³o jest wymagane.</div>
+                </div>
+            </div>
+        </div>
+
         <div class="form-actions no-color">
-            <input type="submit" value="Register" class="btn" />
+            <input ng-disabled="registerForm.$invalid" type="submit" value="Register" class="btn" />
         </div>
     </fieldset>
-}
+</form>
 
+<script>
+    window.registerData = @Html.ToCamelCaseJson(Model)
+</script>

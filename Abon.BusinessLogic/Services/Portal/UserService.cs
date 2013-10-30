@@ -24,7 +24,7 @@ namespace Abon.BusinessLogic.Services.Portal
 
         public bool RegisterUser(UserRegisterDto model, Guid userId)
         {
-            AddUser(model.Name, userId);
+            AddUser(model.Name, model.Email, userId);
             AddUserLogin(model.Name,"Local", userId);
             AddUserSecret(model, userId);
             try
@@ -40,10 +40,10 @@ namespace Abon.BusinessLogic.Services.Portal
 
 
 
-        public bool Validate(string userName, string password)
+        public bool Validate(string nameOrEmail, string password)
         {
             var repo = _unitOfWork.Repository<UserSecret>();
-            var userSecret = repo.All().FirstOrDefault(el => el.User.Name == userName);
+            var userSecret = repo.All().FirstOrDefault(el => el.User.Name == nameOrEmail || el.User.Email == nameOrEmail);
             if (userSecret == null)
                 return false;
 
@@ -74,10 +74,10 @@ namespace Abon.BusinessLogic.Services.Portal
         }
 
 
-        public bool ExternalRegistration(ExternalRegistrationDto model, string providerKey)
+        public bool ExternalRegistration(ExternalLoginDto model, string providerKey)
         {
             var userId = Guid.NewGuid();
-            AddUser(model.UserName, userId);
+            AddUser(model.Name, model.Email, userId);
             AddUserLogin(model.LoginProvider, providerKey, userId);
             try
             {
@@ -115,9 +115,9 @@ namespace Abon.BusinessLogic.Services.Portal
             repo.Add(userSecret);
         }
 
-        private void AddUser(string name, Guid userId)
+        private void AddUser(string name, string email, Guid userId)
         {
-            var user = new User() { Id = userId, Name = name};
+            var user = new User() { Id = userId, Name = name, Email = email };
 
             var repo = _unitOfWork.Repository<User>();
             repo.Add(user);

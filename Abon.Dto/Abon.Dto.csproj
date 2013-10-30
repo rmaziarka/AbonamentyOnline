@@ -53,8 +53,9 @@
   <ItemGroup>
     <Compile Include="PagedFilter.cs" />
     <Compile Include="PagedList.cs" />
+    <Compile Include="Portal\Account\UserLoginDto.cs" />
     <Compile Include="Portal\Account\UserRegisterDto.cs" />
-    <Compile Include="Portal\Account\ExternalRegistrationDto.cs" />
+    <Compile Include="Portal\Account\ExternalLoginDto.cs" />
     <Compile Include="Portal\Home\CategoryDto.cs" />
     <Compile Include="Portal\Home\ImageDto.cs" />
     <Compile Include="Portal\Home\Filter\OfferFilterDto.cs" />
