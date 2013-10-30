@@ -43,7 +43,11 @@ input[type="checkbox"].input-validation-error {
     }
 
     .categoryItem {
-        padding: 0 10px 0 10px;
+        padding: 0px 20px 0px 20px;
+        border-right:1px solid #dbdbdb;
+    }
+     .categoryItem:first-child {
+        border-left:1px solid #dbdbdb;
     }
       .categoryItem:hover {
        background:#29abe1;
@@ -94,4 +98,22 @@ input[type="checkbox"].input-validation-error {
 .btn.btn-navbar {
 position:absolute;
 z-index:1234;
+}
+.nav.menu {
+width:100%;
+}
+.nav-collapse.collapse.ng-scope{
+    max-width:1200px;
+    margin:auto;
+}
+
+.category-header {
+background:#e3e3e3;
+color:#8a2f8b;
+font-size:16pt;
+padding:10px 15px 10px 15px;
+}
+.changeViewPanel{
+    background:#e3e3e3;
+    padding:10px;
 }
