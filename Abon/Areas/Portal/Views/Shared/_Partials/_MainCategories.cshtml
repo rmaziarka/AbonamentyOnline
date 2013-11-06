@@ -5,7 +5,7 @@
     {
         <li class="categoryItem" ng-mouseenter="openMenu('@category.Id','@category.Children.First().Id')" ng-mouseleave="closeMenu()">
             <div>
-                <img src="/img/icon-category/icon-it.png" />
+                <img src="/File/GetImage?id=@category.ImageId" />
                 <p>@category.Name</p>
             </div>
             @Html.Partial("_Partials/_SubCategories", category)

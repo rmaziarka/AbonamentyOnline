@@ -22,5 +22,7 @@ namespace Abon.Dto.Portal.Home
         public CategoryType CategoryType { get; set; }
 
         public int OffersNumber { get; set; }
+
+        public Guid? ImageId { get; set; }
     }
 }

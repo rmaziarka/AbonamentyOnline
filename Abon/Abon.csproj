@@ -275,6 +275,7 @@
     <Content Include="img\icon-social\icon-facebook.png" />
     <Content Include="img\icon-social\icon-google.png" />
     <Content Include="img\ikonatest.png" />
+    <Content Include="img\initializer\categories\ikonatest.png" />
     <Content Include="img\logo-min.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\lupa.png" />

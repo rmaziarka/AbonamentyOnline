@@ -17,12 +17,13 @@ namespace Abon.Database
         public virtual IDbSet<Offer> Offers { get; set; }
         public virtual IDbSet<Category> Categories { get; set; }
         public virtual IDbSet<City> Cities { get; set; }
+        public virtual IDbSet<Image> Images { get; set; }
 
         public AbonContext()
         {
             Configuration.LazyLoadingEnabled = false;
             Database.Connection.ConnectionString =
-                @"Data Source=meftastyle\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
+                @"Data Source=SIARAPC\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
 
         }
 
