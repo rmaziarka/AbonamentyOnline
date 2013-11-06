@@ -272,6 +272,7 @@
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
     <Content Include="img\ikonatest.png" />
+    <Content Include="img\initializer\categories\ikonatest.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\lupa.png" />
     <Content Include="img\offers\icon-2.png" />

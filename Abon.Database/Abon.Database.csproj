@@ -35,6 +35,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,10 +47,12 @@
     <Compile Include="AbonContext.cs" />
     <Compile Include="BaseMapping.cs" />
     <Compile Include="Helpers\CategoryRangeSetter.cs" />
+    <Compile Include="Helpers\ImageInitializerHelper.cs" />
     <Compile Include="Initializers\AbonDatabaseInitializer.cs" />
     <Compile Include="Initializers\IDbInitializer.cs" />
     <Compile Include="Initializers\Portal\CategoryInitializer.cs" />
     <Compile Include="Initializers\Portal\CityInitializer.cs" />
+    <Compile Include="Initializers\Portal\ImageInitializer.cs" />
     <Compile Include="Initializers\Portal\OfferInitializer.cs" />
     <Compile Include="Mappings\Portal\CategoryMapping.cs" />
     <Compile Include="Mappings\Portal\CityMapping.cs" />
@@ -74,7 +77,6 @@
       <Name>Abon.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

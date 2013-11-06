@@ -3,12 +3,12 @@ using Abon.Database.Initializers.Portal;
 using System.Collections.Generic;
 namespace Abon.Database.Initializers
 {
-    public class AbonDatabaseInitializer : DropCreateDatabaseIfModelChanges<AbonContext>
+    public class AbonDatabaseInitializer : DropCreateDatabaseAlways<AbonContext>
     {
         protected override void Seed(AbonContext context)
         {
             AddUniques(context);
-
+            new ImageInitializer().Initialize().ForEach(x => context.Images.Add(x));
             new OfferInitializer().Initialize().ForEach(x => context.Offers.Add(x));
             new CategoryInitializer().Initialize().ForEach(x => context.Categories.Add(x));
             new CityInitializer().Initialize().ForEach(x => context.Cities.Add(x));

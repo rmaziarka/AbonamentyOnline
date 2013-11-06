@@ -44,7 +44,8 @@ namespace Abon.Database.Initializers.Portal
                             Id= Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2") ,
                             Name = "Telefony",
                             CategoryType = CategoryType.Both,
-                            Children = GetPhoneChildren()
+                            Children = GetPhoneChildren(),
+                            ImageId = Guid.Parse("02313c5a-cc01-4ce5-96a1-0609196c3515")
 
                         },
                     new Category
@@ -52,14 +53,16 @@ namespace Abon.Database.Initializers.Portal
                             Id= Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
                             Name = "Jedzenie",
                             CategoryType = CategoryType.Both,
-                            Children = GetFoodChildren()
+                            Children = GetFoodChildren(),
+                            ImageId = Guid.Parse("02313c5a-cc01-4ce5-96a1-0609196c3515")
                         },
                     new Category
                         {
                             Id= Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C") ,
                             Name = "Rozrywka",
                             CategoryType = CategoryType.Both,
-                            Children = GetEntertainmentChildren()
+                            Children = GetEntertainmentChildren(),
+                            ImageId = Guid.Parse("02313c5a-cc01-4ce5-96a1-0609196c3515")
                         },
 
                 };

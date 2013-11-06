@@ -258,6 +258,8 @@ namespace Abon.Areas.Portal.Controllers
             }
 
             // Succeeded so we should be able to lookup the local user name and sign them in
+
+            var email = id.FindFirstValue(ClaimTypes.Email);
             string providerKey = providerKeyClaim.Value;
             if (_userService.UserLoginExists(loginProvider, providerKey))
             {
@@ -275,7 +277,7 @@ namespace Abon.Areas.Portal.Controllers
                 {
                     ViewBag.ReturnUrl = returnUrl;
                     return View("ExternalLoginConfirmation",
-                        new ExternalLoginDto { Name = id.Name, LoginProvider = loginProvider });
+                        new ExternalLoginDto { Name = id.Name, LoginProvider = loginProvider, Email = email });
                 }
             }
 
