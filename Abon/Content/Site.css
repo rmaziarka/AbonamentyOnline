@@ -33,3 +33,87 @@ input[type="checkbox"].input-validation-error {
   background-color: white;
   border-style:none;
 }
+   .subcategoryDiv {
+        position: absolute;
+        background: #29abe1;
+        border: 1px solid;
+        border-color: black;
+        top: 40px;
+        width: 100%;
+    }
+
+    .categoryItem {
+        padding: 0px 20px 0px 20px;
+        border-right:1px solid #dbdbdb;
+    }
+     .categoryItem:first-child {
+        border-left:1px solid #dbdbdb;
+    }
+      .categoryItem:hover {
+       background:#29abe1;
+    }
+
+        .categoryItem div {
+        }
+
+         .navbar .popover {
+        width: 400px;
+        -webkit-border-top-left-radius: 0px;
+        -webkit-border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+        overflow: hidden;
+    }
+
+    .navbar .popover-content {
+        text-align: center;
+    }
+
+        .navbar .popover-content img {
+            height: 212px;
+            max-width: 250px;
+        }
+
+    .navbar .dropdown-menu {
+        -webkit-border-top-right-radius: 0px;
+        -webkit-border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+        .navbar .dropdown-menu > li > a:hover {
+            background-image: none;
+            color: white;
+            background-color: rgb(0, 129, 194);
+            background-color: rgba(0, 129, 194, 0.5);
+        }
+
+        .navbar .dropdown-menu > li > a.maintainHover {
+            color: white;
+            background-color: #0081C2;
+        }
+.btn.btn-navbar {
+position:absolute;
+z-index:1234;
+}
+.nav.menu {
+width:100%;
+}
+.nav-collapse.collapse.ng-scope{
+    max-width:1200px;
+    margin:auto;
+}
+
+.category-header {
+background:#e3e3e3;
+color:#8a2f8b;
+font-size:16pt;
+padding:10px 15px 10px 15px;
+}
+.changeViewPanel{
+    background:#e3e3e3;
+    padding:10px;
+}

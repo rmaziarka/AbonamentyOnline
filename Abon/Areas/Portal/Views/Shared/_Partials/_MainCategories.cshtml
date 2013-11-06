@@ -3,11 +3,12 @@
 <ul class="nav menu">
     @foreach (var category in Model)
     {
-        <li class="categoryItem" ng-mouseenter="openMenu('@category.Id','@category.Children.First().Id')" ng-mouseleave="closeMenu()" style="height:100px">
+        <li class="categoryItem" ng-mouseenter="openMenu('@category.Id','@category.Children.First().Id')" ng-mouseleave="closeMenu()">
             <div>
                 <img src="/img/ikonatest.png" />
                 <p>@category.Name</p>
             </div>
+            @Html.Partial("_Partials/_SubCategories", category)
         </li>
     }
 </ul>

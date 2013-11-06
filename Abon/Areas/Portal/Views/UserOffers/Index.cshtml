@@ -20,10 +20,10 @@
         @Html.Partial("_Partials/_Filter")
     </div>
     <div class="span9">
-        <div>
-            <a href="#" ng-click="changeView('two.html')">Dwa</a>
-            <a href="#" ng-click="changeView('three.html')">Trzy</a>
-            <a href="#" ng-click="changeView('list.html')">Lista</a>
+        <div class="changeViewPanel">
+            <a href="#" ng-click="changeView('two.html')"><img src="/img/offers/icon-2.png"></a>
+            <a href="#" ng-click="changeView('three.html')"><img src="/img/offers/icon-3.png"></a>
+            <a href="#" ng-click="changeView('list.html')"><img src="/img/offers/icon-list.png"></a>
         </div>
             <div data-ng-include="template">
             </div>

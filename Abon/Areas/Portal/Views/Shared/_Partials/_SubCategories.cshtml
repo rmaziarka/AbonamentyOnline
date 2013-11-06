@@ -1,31 +1,19 @@
-﻿@model IEnumerable<Abon.Dto.Portal.Home.CategoryDto>
+﻿@model Abon.Dto.Portal.Home.CategoryDto
 
 @{
     var random = new Random();
 }
-<div ng-show="openedCategoryId != null" style="position: absolute; background: white; border: 1px solid; border-color: black; top: 99px; width: 100%; height:120px">
+<div style="display: none; width: 100%; position: absolute; background: #29abe1; left: 0px; min-height:250px; " ng-mouseenter="openMenu()" ng-mouseleave="closeMenu()" data-ng-show="openedCategoryId == '@Model.Id'">
+    <ul style="margin-top: 25px;">
+        @foreach (var subCategory in Model.Children)
+        {
+            
 
-    @foreach (var category in Model)
-    {
-        <div style="display: none; height: 120px" ng-mouseenter="openMenu()" ng-mouseleave="closeMenu()" data-ng-show="openedCategoryId == '@category.Id'">
-            <ul style="float:left;">
-                @foreach (var subCategory in category.Children)
-                {
-                    <li><a ng-mouseover="openImage('@subCategory.Id')" href="#">@subCategory.Name</a></li>
-                }
-            </ul>
-            <div style="float:right;">
-                @foreach (var subCategory in category.Children)
-                {
-                    var width = random.Next(100, 200);
-                    var height = random.Next(100, 200);
-
-                    var link = String.Format("http://placehold.it/{0}x{1}", width, height);
-                    <img style="width:100px; height:100px;" src="@link" ng-show="openedImageId == '@subCategory.Id'" />
-                }
-            </div>
-            <div class="clearfix"></div>
-        </div>
-
-    }
+            <li><a ng-mouseover="openImage('@subCategory.Id')" href="#">@subCategory.Name</a></li>
+            <div class="menu-category-img" style=" position: absolute; bottom: 0px; right: 0px">
+                <img style="width:100%; height:auto; " src="/img/test-img-menu.png" ng-show="openedImageId == '@subCategory.Id'" />
+                </div>
+        }
+    </ul>
+    
 </div>

@@ -274,6 +274,10 @@
     <Content Include="img\ikonatest.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\lupa.png" />
+    <Content Include="img\offers\icon-2.png" />
+    <Content Include="img\offers\icon-3.png" />
+    <Content Include="img\offers\icon-list.png" />
+    <Content Include="img\test-img-menu.png" />
     <Content Include="Scripts\angularjs\angular-cache-0.9.1.js" />
     <Content Include="Scripts\angularjs\angular-mocks.js" />
     <Content Include="Scripts\angularjs\angular.js" />

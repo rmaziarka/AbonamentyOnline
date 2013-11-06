@@ -22,8 +22,8 @@ namespace Abon.Database
         {
             Configuration.LazyLoadingEnabled = false;
             Database.Connection.ConnectionString =
-                @"Data Source=SIARAPC\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
-           
+                @"Data Source=meftastyle\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
+
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
