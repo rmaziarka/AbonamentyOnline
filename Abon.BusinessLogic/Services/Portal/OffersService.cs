@@ -55,6 +55,7 @@ namespace Abon.BusinessLogic.Services.Portal
             var total = offers.Count();
 
             var selectedCategory = GetCategoryWithChildren(category, offers);
+            SetCategoryParents(selectedCategory);
 
             offers = offers
                 .OrderBy(el => el.Name)
@@ -72,6 +73,34 @@ namespace Abon.BusinessLogic.Services.Portal
                         };
             return model;
         }
+
+        private void SetCategoryParents(CategoryDto category)
+        {
+            var categories = UnitOfWork.Repository<Category>()
+                .All().ToList();
+
+            SetCategoryParent(categories, category);
+        }
+        private void SetCategoryParent(IEnumerable<Category> categories, CategoryDto category)
+        {
+            if (category.ParentId == null)
+                return;
+
+            foreach (var cat in categories)
+            {
+                if (cat.Id == category.ParentId)
+                {
+                    var dto = cat.Map<CategoryDto>();
+                    category.Children = null;
+                    dto.Children = null;
+                    category.Parent = dto;
+                    SetCategoryParent(categories, dto);
+                    break;
+                }
+            }
+        }
+
+
 
         public IEnumerable<SelectListItem> GetOffersCities()
         {

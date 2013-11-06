@@ -6,7 +6,15 @@
 }
 
 <div class="row" ng-controller="offersController">
-    <div class="span12" style="height: 50px"><span ng-hide="categoryHeaderHidden()">Kategoria {{selectedCategory.name}} - </span>{{offers.total}} produktów</div>
+
+    <div class="span12" style="height: 50px">
+        <div class="span3">
+            Liczba ofert: {{offers.total}}
+        </div>
+        <div class="span9"> 
+            @Html.Partial("_Partials/_Breadcrumbs")
+        </div>
+    </div>
     <div class="span3">
         @Html.Partial("_Partials/_Categories")
         @Html.Partial("_Partials/_Filter")

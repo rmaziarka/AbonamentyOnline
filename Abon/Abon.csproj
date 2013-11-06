@@ -288,6 +288,7 @@
     <Content Include="Scripts\app\helpers\scopeHelper.js" />
     <Content Include="Scripts\app\Portal\controllers\categoryController.js" />
     <Content Include="Scripts\app\Portal\controllers\controllerModule.js" />
+    <Content Include="Scripts\app\Portal\controllers\breadcrumbsController.js" />
     <Content Include="Scripts\app\Portal\controllers\externalLoginController.js" />
     <Content Include="Scripts\app\Portal\controllers\loginController.js" />
     <Content Include="Scripts\app\Portal\controllers\pagerController.js" />
@@ -325,6 +326,7 @@
     <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Filter.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_Partials\Header.cshtml" />
     <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Pager.cshtml" />
+    <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Breadcrumbs.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

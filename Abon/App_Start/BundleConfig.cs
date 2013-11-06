@@ -52,6 +52,7 @@ namespace Abon
                 "~/Scripts/app/Portal/controllers/filterController.js",
                 "~/Scripts/app/Portal/controllers/offersController.js",
                 "~/Scripts/app/Portal/controllers/pagerController.js",
+                "~/Scripts/app/Portal/controllers/breadcrumbsController.js",
                 "~/Scripts/app/Portal/controllers/registerController.js",
                 "~/Scripts/app/Portal/controllers/externalLoginController.js",
                 "~/Scripts/app/Portal/controllers/loginController.js",
