@@ -271,7 +271,11 @@
     <Content Include="img\colobus.png" />
     <Content Include="img\glyphicons-halflings-white.png" />
     <Content Include="img\glyphicons-halflings.png" />
+    <Content Include="img\icon-category\icon-it.png" />
+    <Content Include="img\icon-social\icon-facebook.png" />
+    <Content Include="img\icon-social\icon-google.png" />
     <Content Include="img\ikonatest.png" />
+    <Content Include="img\logo-min.png" />
     <Content Include="img\logo.png" />
     <Content Include="img\lupa.png" />
     <Content Include="img\offers\icon-2.png" />
