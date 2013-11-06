@@ -110,10 +110,44 @@ width:100%;
 .category-header {
 background:#e3e3e3;
 color:#8a2f8b;
-font-size:16pt;
+font-size:18pt;
 padding:10px 15px 10px 15px;
+min-height:43px;
 }
 .changeViewPanel{
     background:#e3e3e3;
     padding:10px;
+}
+.category-left {
+background:#e3e3e3;
+
+}
+.category-left ul {
+margin-top:1px;
+}
+.category-left ul li {
+font-size:16px;
+padding:20px 15px 20px 15px;
+}
+.category-left ul li a {
+color:#bdbdbd;   
+    }
+.category-left ul li:hover {
+background:#8a2f8b;
+}
+.category-left ul li:hover a {
+color:#fff;
+    }
+.ng-pristine.ng-valid.ng-valid-number{
+    max-width:35%;
+    float:left;
+}
+.header-imput {
+float:left;
+padding-right:5px;
+}
+.filterController{
+    padding:15px;
+    background:#e3e3e3;
+    margin-top:1px;
 }
