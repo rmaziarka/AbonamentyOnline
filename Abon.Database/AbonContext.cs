@@ -20,6 +20,7 @@ namespace Abon.Database
 
         public AbonContext()
         {
+            Configuration.LazyLoadingEnabled = false;
             Database.Connection.ConnectionString =
                 @"Data Source=SIARAPC\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
            
