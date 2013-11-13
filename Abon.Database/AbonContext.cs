@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abon.Database.Mappings.Portal;
 using Abon.Database.Model.Portal;
+using System.Configuration;
 
 namespace Abon.Database
 {
@@ -22,9 +23,11 @@ namespace Abon.Database
         public AbonContext()
         {
             Configuration.LazyLoadingEnabled = false;
-            Database.Connection.ConnectionString =
-                @"Data Source=SIARAPC\SQLEXPRESS;Initial Catalog=Abon;Integrated Security=True;";
 
+
+            var connection = ConfigurationManager.ConnectionStrings["Abon"];
+            Database.Connection.ConnectionString =
+                connection.ConnectionString;
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

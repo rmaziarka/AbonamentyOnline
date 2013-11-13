@@ -1,0 +1,12 @@
+﻿@using Abon.Dto.Portal.Home
+@using Abon.HtmlHelpers
+@{
+    var nameProp = AngularHelper<OfferDto>.PropertyName(el => el.Name);
+    var ourPriceProp = AngularHelper<OfferDto>.PropertyName(el => el.OurPrice);
+}
+
+<div data-ng-repeat="offer in offers.list" class="span12">
+    <img lazy-img lazy-img-src="offer.imageUrl" style="max-width: 25%; max-height: 25%;" />
+    {{offer.@nameProp}}
+    {{offer.@ourPriceProp}}
+</div>

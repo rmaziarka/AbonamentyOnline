@@ -43,7 +43,7 @@
                 priceTo: $scope.priceTo,
                 priceFrom: $scope.priceFrom,
                 cityId: $scope.cityId,
-                page:$scope.page
+                page: $scope.page
             };
             return params;
         }
@@ -53,7 +53,7 @@
             service.getOffers(params).then(function(obj) {
                 $scope.offers = obj.data.offers;
                 $scope.selectedCategory = obj.data.selectedCategory;
-                $scope.offers = obj.data.offers;
+
 
                 $scope.$broadcast('offers-offersReceived', obj.data);
             });

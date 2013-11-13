@@ -13,26 +13,24 @@ using Newtonsoft.Json.Serialization;
 
 namespace Abon.Areas.Portal.Controllers
 {
-    public class UserOffersController : AbonController
+    public class BusinessOffersController : AbonController
     {
         private IOffersService _offersService;
 
-        public UserOffersController(IOffersService offersService)
+        public BusinessOffersController(IOffersService offersService)
         {
             _offersService = offersService;
         }
 
         public ActionResult Index(OfferFilterDto filter)
         {
-            OfferType = OfferType.Individual;
+            OfferType = OfferType.Business;
 
             var model = _offersService.GetOffers(filter, OfferType);
             model.Cities = _offersService.GetOffersCities();
             model.Page = filter.Page;
             model.Take = filter.Take;
-            return View("../Offers/Index", model);
+            return View("../Offers/Index",model);
         }
-
-
 	}
 }

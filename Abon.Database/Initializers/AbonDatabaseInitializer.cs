@@ -3,7 +3,7 @@ using Abon.Database.Initializers.Portal;
 using System.Collections.Generic;
 namespace Abon.Database.Initializers
 {
-    public class AbonDatabaseInitializer : DropCreateDatabaseAlways<AbonContext>
+    public class AbonDatabaseInitializer : DropCreateDatabaseIfModelChanges<AbonContext>
     {
         protected override void Seed(AbonContext context)
         {
