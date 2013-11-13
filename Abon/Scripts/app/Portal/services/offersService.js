@@ -6,7 +6,7 @@
             spinner.start();
             var deferred = $q.defer();
 
-            $http.get('/UserOffers/Get', {
+            $http.get('/Home/GetOffers', {
                 params: params
             })
                 .success(function (obj) {

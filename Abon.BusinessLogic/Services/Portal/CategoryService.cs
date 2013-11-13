@@ -23,10 +23,14 @@ namespace Abon.BusinessLogic.Services.Portal
         {
         }
 
-        public IEnumerable<CategoryDto> GetMainCategories()
+        public IEnumerable<CategoryDto> GetMainCategories(CategoryType categoryType)
         {
+            var categories = UnitOfWork
+                .Repository<Category>()
+                .All()
+                .Where(el => el.CategoryType == categoryType || el.CategoryType == CategoryType.Both)
+                .ToList();
 
-            var categories = UnitOfWork.Repository<Category>().All().ToList();
             var first = categories.Single(el => el.ParentId == null);
 
             SetChildren(categories, first);

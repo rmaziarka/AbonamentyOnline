@@ -185,6 +185,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Portal\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Portal\Controllers\BusinessOffersController.cs" />
     <Compile Include="Areas\Portal\Controllers\FileController.cs" />
     <Compile Include="Areas\Portal\Controllers\UserOffersController.cs" />
     <Compile Include="Areas\Portal\Controllers\HomeController.cs" />
@@ -203,11 +204,13 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Portal\Views\UserOffers\OfferTemplates\two.cshtml" />
-    <Content Include="Areas\Portal\Views\UserOffers\OfferTemplates\three.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\OfferTemplates\two.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\OfferTemplates\three.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_Partials\_MainCategories.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_Partials\_SubCategories.cshtml" />
-    <None Include="Areas\Portal\Views\UserOffers\OfferTemplates\list.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\_Partials\ChangeTypeBusiness.cshtml" />
+    <Content Include="Areas\Portal\Views\Shared\_Partials\ChangeTypeIndividual.cshtml" />
+    <None Include="Areas\Portal\Views\Offers\OfferTemplates\list.cshtml" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\loader.gif" />
@@ -327,12 +330,13 @@
     <Content Include="Areas\Portal\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Portal\Views\Home\Test.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_Partials\Menu.cshtml" />
-    <Content Include="Areas\Portal\Views\UserOffers\Index.cshtml" />
-    <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Categories.cshtml" />
-    <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Filter.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\Index.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\_Partials\_Categories.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\_Partials\_Filter.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_Partials\Header.cshtml" />
-    <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Pager.cshtml" />
-    <Content Include="Areas\Portal\Views\UserOffers\_Partials\_Breadcrumbs.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\_Partials\_Pager.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\_Partials\_Breadcrumbs.cshtml" />
+    <Content Include="connections.config" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

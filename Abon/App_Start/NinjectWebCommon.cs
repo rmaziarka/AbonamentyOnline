@@ -21,6 +21,9 @@ namespace Abon.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using System.Data.Entity;
+    using System.Web.Http;
+    using System.Net.Http.Formatting;
+    using Newtonsoft.Json.Serialization;
 
     public static class NinjectWebCommon 
     {
@@ -36,7 +39,9 @@ namespace Abon.App_Start
             bootstrapper.Initialize(CreateKernel);
 
             ConfigureMappings();
-
+            var config = GlobalConfiguration.Configuration;
+            var jsonFormatter = config.Formatters.JsonFormatter;
+            jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 
             Database.SetInitializer(new AbonDatabaseInitializer());
         }

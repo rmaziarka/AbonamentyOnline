@@ -1,0 +1,49 @@
+﻿@using Abon.HtmlHelpers
+@model Abon.Dto.Portal.Home.UserOffersDto
+
+@{
+    ViewBag.Title = "Oferty";
+}
+
+<div class="row" ng-controller="offersController">
+
+    <div class="span12" style="height: 50px">
+        <div class="span3">
+            Liczba ofert: {{offers.total}}
+        </div>
+        <div class="span9"> 
+            @Html.Partial("../Offers/_Partials/_Breadcrumbs")
+        </div>
+    </div>
+    <div class="span3">
+        @Html.Partial("../Offers/_Partials/_Categories")
+        @Html.Partial("../Offers/_Partials/_Filter")
+    </div>
+    <div class="span9">
+        <div class="changeViewPanel">
+            <a href="#" ng-click="changeView('two.html')"><img src="/img/offers/icon-2.png"></a>
+            <a href="#" ng-click="changeView('three.html')"><img src="/img/offers/icon-3.png"></a>
+            <a href="#" ng-click="changeView('list.html')"><img src="/img/offers/icon-list.png"></a>
+        </div>
+            <div data-ng-include="template">
+            </div>
+        <div class="clearfix"></div>        
+        @Html.Partial("../Offers/_Partials/_Pager")
+    </div>  
+    
+
+    <script type="text/ng-template" id="list.html">
+        @Html.Partial("../Offers/OfferTemplates/list")
+    </script>
+    <script type="text/ng-template" id="two.html">
+        @Html.Partial("../Offers/OfferTemplates/two")
+    </script>
+    <script type="text/ng-template" id="three.html">
+        @Html.Partial("../Offers/OfferTemplates/three")
+    </script>
+</div>
+
+<script>
+    window.userOffersData = @Html.ToCamelCaseJson(Model)
+
+</script>

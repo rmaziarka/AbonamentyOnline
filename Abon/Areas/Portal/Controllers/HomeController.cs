@@ -19,31 +19,48 @@ namespace Abon.Areas.Portal.Controllers
     public class HomeController : AbonController
     {
         private ICategoryService _categoryService;
+        private IOffersService _offersService;
 
-        public HomeController(ICategoryService categoryService)
+        public HomeController(ICategoryService categoryService, IOffersService offersService)
         {
             _categoryService = categoryService;
+            _offersService = offersService;
         }
         //
         // GET: /Portal/Home/
         public ActionResult Index()
         {
-            return View();
+            if (OfferType == OfferType.Individual)
+                return RedirectToAction("Index", "UserOffers");
+
+            return RedirectToAction("Index", "BusinessOffers");
         }
 
-        
-        public ActionResult Test()
-        {
-            return View();
-        }
-
+       
 
         public ActionResult Menu()
         {
-            var model = new MenuDto() { Categories = _categoryService.GetMainCategories() };
+            var categoryType = OfferType == OfferType.Individual ? CategoryType.Individual : CategoryType.Business;
+
+            var model = new MenuDto() { Categories = _categoryService.GetMainCategories(categoryType) };
             return PartialView("_Partials/Menu",model);
         }
 
-     
+        public LoweredJsonResult GetOffers(OfferFilterDto filter)
+        {
+            var dto = _offersService.GetOffers(filter, OfferType);
+            dto.Page = filter.Page;
+            dto.Take = filter.Take;
+            return LoweredJson(dto);
+        }
+
+
+        public ActionResult ChangeType()
+        {
+            if (OfferType == OfferType.Individual)
+                return PartialView("_Partials/ChangeTypeBusiness");
+
+            return PartialView("_Partials/ChangeTypeIndividual");
+        }
 	}
 }

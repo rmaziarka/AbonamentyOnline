@@ -163,6 +163,13 @@ namespace Abon.Database.Initializers.Portal
                             Id= Guid.Parse("6305d7d8-c569-44a9-ab7a-f0a7d2637743") ,
                             Name = "Gazety",
                             CategoryType = CategoryType.Business
+                        },
+                        
+                    new Category
+                        {
+                            Id= Guid.Parse("e0df9499-6992-43cf-9e3e-4e8878800b5a") ,
+                            Name = "Tygodniki",
+                            CategoryType = CategoryType.Individual
                         }
 
                 };
