@@ -111,7 +111,7 @@ width:100%;
 background:#e3e3e3;
 color:#8a2f8b;
 font-size:18pt;
-padding:10px 15px 10px 15px;
+padding:20px 15px 0px 15px;
 min-height:43px;
 }
 .changeViewPanel{
@@ -128,14 +128,15 @@ margin-top:1px;
 .category-left ul li {
 font-size:16px;
 padding:20px 15px 20px 15px;
+cursor:pointer;
 }
-.category-left ul li a {
+.category-left ul li {
 color:#bdbdbd;   
     }
 .category-left ul li:hover {
 background:#8a2f8b;
 }
-.category-left ul li:hover a {
+.category-left ul li:hover  {
 color:#fff;
     }
 .ng-pristine.ng-valid.ng-valid-number{
@@ -160,4 +161,18 @@ ul.nav.menu li ul li a{
 }
 ul.nav.menu li ul li{
     padding:5px;
+}
+.title-header-reg-log{
+    display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-size: 21px;
+  line-height: 40px;
+  color: #333333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.view-list {
+margin-bottom:1px;
 }

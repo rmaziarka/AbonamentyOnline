@@ -54,7 +54,7 @@ namespace Abon.Database.Initializers.Portal
                             Name = "Jedzenie",
                             CategoryType = CategoryType.Both,
                             Children = GetFoodChildren(),
-                            ImageId = Guid.Parse("02313c5a-cc01-4ce5-96a1-0609196c3515")
+                            ImageId = Guid.Parse("2269152f-9a6b-4023-8009-b57038aefd57")
                         },
                     new Category
                         {
@@ -63,6 +63,14 @@ namespace Abon.Database.Initializers.Portal
                             CategoryType = CategoryType.Both,
                             Children = GetEntertainmentChildren(),
                             ImageId = Guid.Parse("02313c5a-cc01-4ce5-96a1-0609196c3515")
+                        },
+                          new Category
+                        {
+                            Id= Guid.Parse("e6c8e98b-f754-4bf3-a038-f1aec0e1a29b") ,
+                            Name = "Prenumeraty",
+                            CategoryType = CategoryType.Both,
+                            Children = GetPrenumerationChildren(),
+                            ImageId = Guid.Parse("2269152f-9a6b-4023-8009-b57038aefd57")
                         },
 
                 };
@@ -120,7 +128,6 @@ namespace Abon.Database.Initializers.Portal
                 };      
         }
 
-
         private List<Category> GetEntertainmentChildren()
         {
             return new List<Category>()
@@ -143,6 +150,20 @@ namespace Abon.Database.Initializers.Portal
                             Name = "Bilard",
                             CategoryType = CategoryType.Both
                         },
+
+                };
+        }
+
+        private List<Category> GetPrenumerationChildren()
+        {
+            return new List<Category>()
+                {
+                    new Category
+                        {
+                            Id= Guid.Parse("6305d7d8-c569-44a9-ab7a-f0a7d2637743") ,
+                            Name = "Gazety",
+                            CategoryType = CategoryType.Business
+                        }
 
                 };
         }

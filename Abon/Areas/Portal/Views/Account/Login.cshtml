@@ -11,13 +11,14 @@
 </hgroup>
 <div class="row-fluid">
     <div class="span6" ng-controller="loginController">
+        <div class="title-header-reg-log">Masz ju¿ konto ab-on? Zaloguj siê tutaj!</div>
         <section id="loginForm">
             @using (Html.BeginForm("Login","Account",new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { name = "loginForm" }))
             {
                 @Html.AntiForgeryToken()
                 @Html.ValidationSummary(true)
                 <fieldset class="form-horizontal">
-                    <legend>Masz ju¿ konto ab-on? Zaloguj siê tutaj!</legend>
+                    
                     <div class="control-group">
                         @Html.Label("Email lub nazwa u¿ytkownika", new { @class = "control-label" })
                         <div class="controls">

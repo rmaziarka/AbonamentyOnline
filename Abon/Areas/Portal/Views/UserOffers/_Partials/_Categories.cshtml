@@ -13,8 +13,7 @@
         </ul>
     </div>
     <ul>
-        <li ng-show="selectedCategory.children.length" ng-repeat="cat in selectedCategory.children">
-            <a ng-click="categoryClicked(cat.id)" href="#">{{cat.name}} -- {{cat.offersNumber}}</a>
+        <li ng-show="selectedCategory.children.length" ng-repeat="cat in selectedCategory.children" ng-click="categoryClicked(cat.id)">{{cat.name}} -- {{cat.offersNumber}}
         </li>
 
     </ul>

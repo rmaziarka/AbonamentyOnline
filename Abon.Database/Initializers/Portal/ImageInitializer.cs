@@ -21,8 +21,14 @@ namespace Abon.Database.Initializers.Portal
                     new Image
                         {
                             Id = Guid.Parse("02313c5a-cc01-4ce5-96a1-0609196c3515"),
-                            MimeType = categoryImageHelper.GetImageMimeType("ikonatest.png"),
-                            FileContent = categoryImageHelper.GetImageData("ikonatest.png")
+                            MimeType = categoryImageHelper.GetImageMimeType("icon-it.png"),
+                            FileContent = categoryImageHelper.GetImageData("icon-it.png")
+                        },
+                    new Image
+                        {
+                            Id = Guid.Parse("2269152f-9a6b-4023-8009-b57038aefd57"),
+                            MimeType = categoryImageHelper.GetImageMimeType("icon-subsc.png"),
+                            FileContent = categoryImageHelper.GetImageData("icon-subsc.png")
                         },
 
                 };

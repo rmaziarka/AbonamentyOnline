@@ -14,7 +14,7 @@ else
     {
     @Html.AntiForgeryToken()
     <fieldset id="socialLoginList">
-        <legend>Masz już konto na portalu społecznościowym? Użyj go aby zalogować się do ab-on!</legend>
+        <legend>Użyj konta innego serwisu, aby zalogować się do ab-on!</legend>
         <p>
         @foreach (AuthenticationDescription p in Model) {
             <button type="submit" class="btn @p.AuthenticationType" id="@p.AuthenticationType" name="provider" value="@p.AuthenticationType" title="Log in using your @p.Caption account">Dolacz przez @p.AuthenticationType</button>
