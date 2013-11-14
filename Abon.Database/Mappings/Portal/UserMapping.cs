@@ -8,6 +8,9 @@ namespace Abon.Database.Mappings.Portal
         {
             Property(m => m.Name).IsRequired().HasMaxLength(30);
             Property(m => m.Email).IsRequired().HasMaxLength(250);
+            Property(m => m.Phone).IsOptional().HasMaxLength(30);
+            Property(m => m.FirstName).IsOptional().HasMaxLength(30);
+            Property(m => m.SecondName).IsOptional().HasMaxLength(30);
         }
     }
 }

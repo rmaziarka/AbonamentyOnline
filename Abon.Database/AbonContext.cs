@@ -19,6 +19,8 @@ namespace Abon.Database
         public virtual IDbSet<Category> Categories { get; set; }
         public virtual IDbSet<City> Cities { get; set; }
         public virtual IDbSet<Image> Images { get; set; }
+        public virtual IDbSet<Address> Addresses { get; set; }
+        public virtual IDbSet<Company> Companies{ get; set; }
 
         public AbonContext()
         {
@@ -39,6 +41,8 @@ namespace Abon.Database
             modelBuilder.Configurations.Add(new CategoryMapping());
             modelBuilder.Configurations.Add(new CityMapping());
             modelBuilder.Configurations.Add(new ImageMapping());
+            modelBuilder.Configurations.Add(new AddressMapping());
+            modelBuilder.Configurations.Add(new CompanyMapping());
             base.OnModelCreating(modelBuilder);
         }
     }

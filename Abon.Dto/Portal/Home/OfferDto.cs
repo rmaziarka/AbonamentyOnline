@@ -8,7 +8,25 @@ namespace Abon.Dto.Portal.Home
 {
     public class OfferDto
     {
-        public string ImageUrl { get; set; }
+        public Guid Id { get; set; }
+
+        public Guid? ImageId { get; set; }
+        public string ImageUrl
+        {
+            get
+            {
+                return "File/GetImage?id=" + ImageId;
+            }
+        }
+
+        public Guid CompanyLogoId { get; set; }
+        public string CompanyLogoUrl
+        {
+            get
+            {
+                return "File/GetImage?id=" + CompanyLogoId;
+            }
+        }
 
         public string Name { get; set; }
 

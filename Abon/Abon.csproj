@@ -282,6 +282,7 @@
     <Content Include="img\ikonatest.png" />
     <Content Include="img\initializer\categories\icon-subsc.png" />
     <Content Include="img\initializer\categories\ikonatest.png" />
+    <Content Include="img\initializer\companies\insert-logo.png" />
     <Content Include="img\logo-min.png" />
     <Content Include="img\lupa.png" />
     <Content Include="img\offers\icon-2.png" />

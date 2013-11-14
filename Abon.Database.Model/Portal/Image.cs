@@ -12,10 +12,12 @@ namespace Abon.Database.Model.Portal
 
          public string MimeType { get; set; }
 
-         public ICollection<Category> Categories { get; set; }
+         public virtual ICollection<Category> Categories { get; set; }
 
+         public virtual ICollection<Offer> OffersByImage { get; set; }
 
-         public ICollection<Offer> Offers { get; set; }
+         public virtual ICollection<Offer> OffersByCompanyLogo { get; set; }
 
+         public virtual ICollection<Company> Companies { get; set; }
     }
 }

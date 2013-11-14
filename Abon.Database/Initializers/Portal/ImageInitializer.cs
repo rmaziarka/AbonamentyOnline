@@ -14,6 +14,35 @@ namespace Abon.Database.Initializers.Portal
         
         public List<Image> Initialize()
         {
+
+
+            var list = new List<Image>();
+
+            list.AddRange(GetCategoryImages());
+            list.AddRange(GetCompanyImages());
+
+            return list;
+
+        }
+
+        public IEnumerable<Image> GetCompanyImages()
+        {
+            var categoryImageHelper = new ImageInitializerHelper(ImageTypes.Company);
+
+            return new List<Image>()
+                {
+                    new Image
+                        {
+                            Id = Guid.Parse("eacac2c8-0f68-49dd-a9e7-4ac50f894966"),
+                            MimeType = categoryImageHelper.GetImageMimeType("insert-logo.png"),
+                            FileContent = categoryImageHelper.GetImageData("insert-logo.png")
+                        }
+
+                };
+        }
+
+        public IEnumerable<Image> GetCategoryImages()
+        {
             var categoryImageHelper = new ImageInitializerHelper(ImageTypes.Category);
 
             return new List<Image>()
@@ -32,6 +61,7 @@ namespace Abon.Database.Initializers.Portal
                         },
 
                 };
+
         }
     }
 }

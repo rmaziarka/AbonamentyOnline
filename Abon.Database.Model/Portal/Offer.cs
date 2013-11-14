@@ -17,22 +17,23 @@ namespace Abon.Database.Model.Portal
 
         public decimal OurPrice { get; set; }
 
-        public byte OfferImageUrl { get; set; }
-
         public DateTime CreateDate { get; set; }
-
-        public Guid CategoryId { get; set; }
-
-        public Category Category { get; set; }
-
-        public Guid? CityId { get; set; }
-
-        public City City { get; set; }
 
         public OfferType OfferType { get; set; }
 
-        public Guid? ImageId { get; set; }
+        public Guid CompanyId { get; set; }
+        public virtual Company Company { get; set; }
 
-        public Image Image { get; set; }
+        public Guid CategoryId { get; set; }
+        public virtual Category Category { get; set; }
+
+        public Guid? CityId { get; set; }
+        public virtual City City { get; set; }
+
+        public Guid? ImageId { get; set; }
+        public virtual Image Image { get; set; }
+
+        public Guid? CompanyLogoId { get; set; }
+        public virtual Image CompanyLogo { get; set; }
     }
 }

@@ -22,11 +22,17 @@ namespace Abon.Database.Helpers
                 case ImageTypes.Offer:
                     Directories = DirectoriesToOfferImages;
                     break;
+
+                case ImageTypes.Company:
+                    Directories = DirectoriesToCompanyImages;
+                    break;
             }
         }
         public readonly string[] DirectoriesToCategoryImages = new[] { "img", "initializer", "categories" };
 
         public readonly string[] DirectoriesToOfferImages = new[] { "img", "initializer", "offers" };
+
+        public readonly string[] DirectoriesToCompanyImages = new[] { "img", "initializer", "companies" };
 
         public string[] Directories { get; set; }
 
@@ -89,6 +95,7 @@ namespace Abon.Database.Helpers
 
     public enum ImageTypes
     {
-        Category, Offer
+        Category, Offer,
+        Company
     }
 }
