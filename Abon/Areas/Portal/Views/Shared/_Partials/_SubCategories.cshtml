@@ -3,7 +3,7 @@
 @{
     var random = new Random();
 }
-<div style="display: none; width: 100%; position: absolute; background: #29abe1; left: 0px; min-height:250px; " ng-mouseenter="openMenu()" ng-mouseleave="closeMenu()" data-ng-show="openedCategoryId == '@Model.Id'">
+<div class="category-panel-open" ng-mouseenter="openMenu()" ng-mouseleave="closeMenu()" data-ng-show="openedCategoryId == '@Model.Id'">
     <ul style="margin-top: 25px;">
         @foreach (var subCategory in Model.Children)
         {

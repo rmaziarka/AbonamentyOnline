@@ -132,6 +132,7 @@ cursor:pointer;
 }
 .category-left ul li {
 color:#bdbdbd;   
+
     }
 .category-left ul li:hover {
 background:#8a2f8b;
@@ -176,3 +177,45 @@ ul.nav.menu li ul li{
 .view-list {
 margin-bottom:1px;
 }
+.category-panel-open {
+    width: 100%; 
+    position: absolute; 
+    background: #29abe1; 
+    left: 0px; 
+    min-height:250px;
+}
+footer {
+    background: #29abe1;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    left: 0px;
+}
+footer .container {
+    padding:25px;
+}
+.nav.log-menu li a{
+    color:#8a2f8b;
+}
+.nav.log-menu li{
+    padding:1px 5px 1px 5px;
+}
+.nav.log-menu {
+margin-right:0px;
+}
+
+
+
+
+/*individual*/
+.individual .categoryItem:hover
+{
+    background: #faaf3a;
+}
+.individual .category-panel-open {
+    background: #faaf3a; 
+}
+.individual footer {
+    background: #faaf3a;
+}
+/*----------*/

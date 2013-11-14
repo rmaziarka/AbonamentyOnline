@@ -4390,7 +4390,7 @@ input[type="submit"].btn.btn-mini {
 .navbar .brand {
   display: block;
   float: left;
-  padding: 10px 20px 10px;
+  padding: 1px 20px 1px;
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
@@ -4587,7 +4587,6 @@ input[type="submit"].btn.btn-mini {
 
 .navbar .nav > li > a {
   float: none;
-  padding: 10px 15px 10px;
   color: #777777;
   text-decoration: none;
   text-shadow: 0 1px 0 #ffffff;
@@ -6149,8 +6148,10 @@ background:none;
 input[type="button"].search.sbtn {
    width: 30px; 
    height: 30px; 
+   background:none;
    background-image: url('../img/lupa.png');
    background-repeat:no-repeat;
+   background-position:bottom;
    border:none;
    box-shadow:none;
 }
