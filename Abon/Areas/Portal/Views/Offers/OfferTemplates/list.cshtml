@@ -2,24 +2,24 @@
 @using Abon.HtmlHelpers
 @{
     var nameProp = AngularHelper<OfferDto>.PropertyName(el => el.Name);
-    var ourPriceProp = AngularHelper<OfferDto>.PropertyName(el => el.OurPrice);
+    var ourPriceProp = AngularHelper<OfferDto>.PropertyName(el => el.Saving);
 }
 
 <div data-ng-repeat="offer in offers.list" class="span12 view-list">
     <img lazy-img lazy-img-src="offer.imageUrl" style="max-width: 25%; max-height: 25%;" />
-    {{offer.@nameProp}}
-    {{offer.@ourPriceProp}}
+    <img lazy-img lazy-img-src="offer.companyLogoUrl" style="max-width: 25%; max-height: 25%;" />
+    {{offer.name}}
     <div class="price-producer">
         <div class="label-offer">Cena producenta:</div>
-        <div class="value-offer">199zł</div>
+        <div class="value-offer">{{offer.producerPrice}} zł</div>
     </div>
     <div class="price-abon">
         <div class="label-offer">cena ab-on:</div>
-        <div class="value-offer">150zł</div>
+        <div class="value-offer">{{offer.ourPrice}} zł</div>
     </div>
     <div class="save-price">
         <div class="label-offer">oszczędzasz:</div>
-        <div class="value-offer">49zł</div>
+        <div class="value-offer">{{offer.saving}} zł</div>
     </div>
     <div class="details-offer btn ">szczegóły</div>
 

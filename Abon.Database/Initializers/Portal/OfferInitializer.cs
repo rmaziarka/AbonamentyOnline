@@ -22,7 +22,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 50,
                             OurPrice = 40,
                             CategoryId = Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2"),
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             CityId = Guid.Parse("a5a82340-25a8-4c26-932a-c646ec534d62"),
@@ -37,7 +37,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 100,
                             OurPrice = 80,
                             CategoryId = Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2"),
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             OfferType = OfferType.Individual
@@ -51,7 +51,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 200,
                             OurPrice = 170,
                             CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d"),
@@ -66,7 +66,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 150,
                             OurPrice = 130,
                             CategoryId = Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C"),
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             OfferType = OfferType.Individual
@@ -80,7 +80,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 180,
                             OurPrice = 120,
                             CategoryId = Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C"),
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             OfferType = OfferType.Individual
@@ -93,7 +93,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 150,
                             OurPrice = 130,
                             CategoryId = Guid.Parse("4A666C07-80B3-470C-BDDD-06B12B0D9D4C"),
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             OfferType = OfferType.Individual
@@ -106,7 +106,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 200,
                             OurPrice = 170,
                             CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d"),
@@ -121,7 +121,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 200,
                             OurPrice = 170,
                             CategoryId = Guid.Parse("DB0969F1-A8DA-4253-9E40-1B4CE6E67C08") ,
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             CityId = Guid.Parse("571bc239-d6ac-411a-ab0b-62ddb3f4ad4d"),
@@ -135,7 +135,7 @@ namespace Abon.Database.Initializers.Portal
                             ProducerPrice = 50,
                             OurPrice = 40,
                             CategoryId = Guid.Parse("BA36C7B2-DBC5-4D14-9A42-1436402357D2"),
-                            
+                            CompanyId = Guid.Parse("75326404-d874-400d-8723-b4eaa62b0d68"),
                             ImageId = null,
                             CreateDate = DateTime.Now,
                             CityId = Guid.Parse("a5a82340-25a8-4c26-932a-c646ec534d62"),

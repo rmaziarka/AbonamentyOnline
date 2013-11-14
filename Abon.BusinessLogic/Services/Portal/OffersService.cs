@@ -3,6 +3,7 @@ using System.CodeDom;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data.Entity;
 using Abon.Core.AutoMapper;
 using Abon.Database.Model.Portal;
 using Abon.Dto;
@@ -26,7 +27,9 @@ namespace Abon.BusinessLogic.Services.Portal
 
         public UserOffersDto GetOffers(OfferFilterDto filter, OfferType offerType)
         {
-            var offers = UnitOfWork.Repository<Offer>().All();
+            var offers = UnitOfWork.Repository<Offer>()
+                .All()
+                .Include(el => el.Company);
 
             offers = offers.Where(el => el.OfferType == offerType);
 
