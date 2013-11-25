@@ -22,22 +22,22 @@ namespace Abon.Core
 
         }
 
-        public LoweredJsonResult LoweredJson(JsonModel model)
+        protected LoweredJsonResult LoweredJson(JsonModel model)
         {
             return new LoweredJsonResult(){Data = model};
         }
 
-        public LoweredJsonResult LoweredJson()
+        protected LoweredJsonResult LoweredJson()
         {
             return new LoweredJsonResult();
         }
 
-        public LoweredJsonResult LoweredJson(object data)
+        protected LoweredJsonResult LoweredJson(object data)
         {
             return new LoweredJsonResult(){Data = new JsonModel(){Data = data}};
         }
 
-        public void SetOfferTypeToResponse(OfferType offerType)
+        protected void SetOfferTypeToResponse(OfferType offerType)
         {
             HttpCookie cookie = new HttpCookie("offerType");
 
@@ -48,7 +48,7 @@ namespace Abon.Core
             Response.Cookies.Add(cookie);
         }
 
-        public OfferType GetOfferType()
+        protected OfferType GetOfferType()
         {
             var cookie = Request.Cookies["offerType"];
 
@@ -72,7 +72,8 @@ namespace Abon.Core
         protected override  void OnActionExecuted(ActionExecutedContext filterContext)
         {
 
-            ViewBag.OfferTypeClass = OfferType == OfferType.Individual? "individual" : "business";
+            ViewBag.OfferTypeClass = OfferType == OfferType.Individual ? "individual" : "business";
+            ViewBag.OfferTypePath = OfferType == OfferType.Individual ? "UserOffers" : "BusinessOffers";
             base.OnActionExecuted(filterContext);
         }
     }

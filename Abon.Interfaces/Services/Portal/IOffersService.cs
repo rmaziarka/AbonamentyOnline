@@ -16,5 +16,7 @@ namespace Abon.Interfaces.Services.Portal
     {
         UserOffersDto GetOffers(OfferFilterDto filter, OfferType offerType);
         IEnumerable<SelectListItem> GetOffersCities();
+
+        OfferDetailsDto GetOfferDetails(Guid id);
     }
 }

@@ -57,11 +57,15 @@
     <Compile Include="Portal\Account\UserRegisterDto.cs" />
     <Compile Include="Portal\Account\ExternalLoginDto.cs" />
     <Compile Include="Portal\Home\CategoryDto.cs" />
+    <Compile Include="Portal\Home\OfferCompanyAddressDto.cs" />
+    <Compile Include="Portal\Home\OfferCompanyDto.cs" />
     <Compile Include="Portal\Home\ImageDto.cs" />
     <Compile Include="Portal\Home\Filter\OfferFilterDto.cs" />
     <Compile Include="Portal\Home\MenuDto.cs" />
+    <Compile Include="Portal\Home\OfferDetailsDto.cs" />
     <Compile Include="Portal\Home\OfferDto.cs" />
     <Compile Include="Portal\Home\UserOffersDto.cs" />
+    <Compile Include="Portal\OfferFolder\ImagePathDto.cs" />
     <Compile Include="Portal\PortalMapperConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

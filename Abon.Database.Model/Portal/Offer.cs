@@ -30,10 +30,12 @@ namespace Abon.Database.Model.Portal
         public Guid? CityId { get; set; }
         public virtual City City { get; set; }
 
-        public Guid? ImageId { get; set; }
-        public virtual Image Image { get; set; }
+        public Guid LogoId { get; set; }
+        public virtual Image Logo { get; set; }
 
         public Guid? CompanyLogoId { get; set; }
         public virtual Image CompanyLogo { get; set; }
+
+        public ICollection<OfferImage> OfferImages { get; set; }
     }
 }

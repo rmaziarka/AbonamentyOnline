@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Abon.Database.Model;
 using Abon.Database.Repository;
 using Abon.Interfaces;
+using System.Linq.Expressions;
 
 namespace Abon.Database
 {
@@ -20,6 +21,7 @@ namespace Abon.Database
             _ctx = new AbonContext();
             _repositories = new Dictionary<Type, object>();
             _disposed = false;
+
         }
 
         public IRepository<TEntity> Repository<TEntity>() where TEntity : ModelBase
@@ -31,6 +33,16 @@ namespace Abon.Database
             _repositories.Add(typeof(TEntity), repository);
             return repository;
 
+        }
+
+        public void LoadReference<T>(T entity, Expression<Func<T, object>> reference) where T:ModelBase
+        {
+            _ctx.Entry(entity).Reference(reference).Load();
+        }
+
+        public void LoadCollection<T,TCol>(T entity, Expression<Func<T, ICollection<TCol>>> reference) where T : ModelBase where TCol : ModelBase
+        {
+            _ctx.Entry(entity).Collection(reference).Load();
         }
 
         public void Save()

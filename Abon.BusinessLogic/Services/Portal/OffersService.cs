@@ -14,6 +14,7 @@ using Abon.Interfaces.Services.Portal;
 using AutoMapper.Internal;
 using System.Web.Mvc;
 using Abon.Database.Model.Portal.Enums;
+using Abon.Dto.Portal.OfferFolder;
 
 namespace Abon.BusinessLogic.Services.Portal
 {
@@ -148,5 +149,25 @@ namespace Abon.BusinessLogic.Services.Portal
             return offers;
         }
 
+
+        public OfferDetailsDto GetOfferDetails(Guid id)
+        {
+            var offerRepo = UnitOfWork.Repository<Offer>();
+
+            var offer = offerRepo.GetById(id);
+            
+            if (offer == null)
+                return null;
+
+            UnitOfWork.LoadReference(offer, o => o.Company);
+            UnitOfWork.LoadReference(offer.Company, c => c.Address);
+            UnitOfWork.LoadCollection(offer, o => o.OfferImages);
+
+            var offerDto = offer.Map<OfferDetailsDto>();
+            offerDto.Company.Logo = new ImagePathDto() { Id = offer.CompanyLogoId ?? offer.Company.LogoId };
+
+
+            return offerDto;
+        }
     }
 }

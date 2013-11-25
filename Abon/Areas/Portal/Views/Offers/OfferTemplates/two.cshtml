@@ -7,7 +7,7 @@
 
 <div data-ng-repeat="offer in offers.list" class="span4">
     <img lazy-img lazy-img-src="offer.imageUrl" style="max-width: 25%; max-height: 25%;" />
-    <img lazy-img lazy-img-src="offer.companyLogoUrl" style="max-width: 25%; max-height: 25%;" />
+    <img lazy-img lazy-img-src="offer.producerLogoUrl" style="max-width: 25%; max-height: 25%;" />
     {{offer.name}}
     <div class="price-producer">
         <div class="label-offer">Cena producenta:</div>
@@ -21,5 +21,5 @@
         <div class="label-offer">oszczędzasz:</div>
         <div class="value-offer">{{offer.saving}} zł</div>
     </div>
-    <div class="details-offer btn ">szczegóły</div>
+    <div class="details-offer btn " ng-click="goToDetails(offer.id)">szczegóły</div>
 </div>

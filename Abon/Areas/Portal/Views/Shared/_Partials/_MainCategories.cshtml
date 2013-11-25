@@ -3,13 +3,16 @@
 <ul class="nav menu">
     @foreach (var category in Model)
     {
+
         <li class="categoryItem" ng-mouseenter="openMenu('@category.Id','@category.Children.First().Id')" ng-mouseleave="closeMenu()">
-            <div>
-                <img src="/File/GetImage?id=@category.ImageId" />
-                <p>@category.Name</p>
-            </div>
-            @Html.Partial("_Partials/_SubCategories", category)
+            <a href="/@ViewBag.OfferTypePath?categoryId=@category.Id">
+                <div>
+                    <img src="/File/GetImage?id=@category.ImageId" />
+                    <p>@category.Name</p>
+                </div>
+                @Html.Partial("_Partials/_SubCategories", category)
+            </a>
         </li>
     }
-    @Html.Action("ChangeType","Home",null)
+    @Html.Action("ChangeType", "Home", null)
 </ul>

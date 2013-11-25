@@ -48,6 +48,7 @@
     <Compile Include="Portal\Enums\OfferType.cs" />
     <Compile Include="Portal\Image.cs" />
     <Compile Include="Portal\Offer.cs" />
+    <Compile Include="Portal\OfferImage.cs" />
     <Compile Include="Portal\User.cs" />
     <Compile Include="Portal\UserLogin.cs" />
     <Compile Include="Portal\UserSecret.cs" />

@@ -14,6 +14,7 @@ namespace Abon.Database.Initializers
             new CompanyInitializer().Initialize().ForEach(x => context.Companies.Add(x));
             new CategoryInitializer().Initialize().ForEach(x => context.Categories.Add(x));
             new OfferInitializer().Initialize().ForEach(x => context.Offers.Add(x));
+            new OfferImageInitializer().Initialize().ForEach(x => context.OfferImages.Add(x));
 
             base.Seed(context);
         }

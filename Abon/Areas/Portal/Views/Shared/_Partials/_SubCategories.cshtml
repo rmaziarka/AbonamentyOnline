@@ -1,15 +1,10 @@
 ﻿@model Abon.Dto.Portal.Home.CategoryDto
 
-@{
-    var random = new Random();
-}
-<div class="category-panel-open" ng-mouseenter="openMenu()" ng-mouseleave="closeMenu()" data-ng-show="openedCategoryId == '@Model.Id'">
+<div class="category-panel-open" data-ng-show="openedCategoryId == '@Model.Id'">
     <ul style="margin-top: 25px;">
         @foreach (var subCategory in Model.Children)
         {
-            
-
-            <li><a ng-mouseover="openImage('@subCategory.Id')" href="#">@subCategory.Name</a></li>
+            <li><a ng-mouseover="openImage('@subCategory.Id')" href="/@ViewBag.OfferTypePath?categoryId=@subCategory.Id">@subCategory.Name</a></li>
             <div class="menu-category-img" style=" position: absolute; bottom: 0px; right: 0px">
                 <img style="width:100%; height:auto; " src="/img/test-img-menu.png" ng-show="openedImageId == '@subCategory.Id'" />
                 </div>

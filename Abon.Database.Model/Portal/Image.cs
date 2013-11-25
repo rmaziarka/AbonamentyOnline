@@ -19,5 +19,7 @@ namespace Abon.Database.Model.Portal
          public virtual ICollection<Offer> OffersByCompanyLogo { get; set; }
 
          public virtual ICollection<Company> Companies { get; set; }
+
+         public virtual ICollection<OfferImage> OfferImages { get; set; }
     }
 }

@@ -1,0 +1,60 @@
+@model Abon.Dto.Portal.Home.OfferCompanyDto
+
+
+<dl>
+    <img src="@Model.Logo.Path"/>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Name)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Description)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Description)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Regon)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Regon)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Phone)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Phone)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Nip)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Nip)
+    </dd>
+
+    <dt>
+        @Html.DisplayNameFor(model => model.Email)
+    </dt>
+
+    <dd>
+        @Html.DisplayFor(model => model.Email)
+    </dd>
+    @if (Model.ShowAddressInOffers)
+    {
+        @Html.Partial("_Details/_Address", Model.Address)
+
+    }
+
+</dl>

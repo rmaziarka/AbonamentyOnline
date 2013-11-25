@@ -19,12 +19,12 @@ namespace Abon.Dto.Portal.Home
             }
         }
 
-        public Guid CompanyLogoId { get; set; }
-        public string CompanyLogoUrl
+        public Guid ProducerLogoId { get; set; }
+        public string ProducerLogoUrl
         {
             get
             {
-                return "File/GetImage?id=" + CompanyLogoId;
+                return "File/GetImage?id=" + ProducerLogoId;
             }
         }
 

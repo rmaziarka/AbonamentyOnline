@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Abon.Dto.Portal.OfferFolder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Abon.Database.Model.Portal
+namespace Abon.Dto.Portal.Home
 {
-    public class Company:ModelBase
+    public class OfferCompanyDto
     {
         public string Name { get; set; }
 
@@ -22,15 +23,9 @@ namespace Abon.Database.Model.Portal
 
         public bool ShowAddressInOffers { get; set; }
 
-        public virtual Image Logo { get; set; }
-        public Guid LogoId { get; set; }
+        public ImagePathDto Logo { get; set; }
 
-        public virtual Address Address { get; set; }
-        public Guid AddressId { get; set; }
+        public OfferCompanyAddressDto Address { get; set; }
 
-        public virtual Address ContactAddress { get; set; }
-        public Guid? ContactAddressId { get; set; }
-
-        public virtual ICollection<Offer> Offers { get; set; }
     }
 }

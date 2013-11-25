@@ -187,6 +187,7 @@
     <Compile Include="Areas\Portal\Controllers\AccountController.cs" />
     <Compile Include="Areas\Portal\Controllers\BusinessOffersController.cs" />
     <Compile Include="Areas\Portal\Controllers\FileController.cs" />
+    <Compile Include="Areas\Portal\Controllers\OffersController.cs" />
     <Compile Include="Areas\Portal\Controllers\UserOffersController.cs" />
     <Compile Include="Areas\Portal\Controllers\HomeController.cs" />
     <Compile Include="Areas\Portal\PortalAreaRegistration.cs" />
@@ -210,6 +211,7 @@
     <Content Include="Areas\Portal\Views\Shared\_Partials\_SubCategories.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_Partials\ChangeTypeBusiness.cshtml" />
     <Content Include="Areas\Portal\Views\Shared\_Partials\ChangeTypeIndividual.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\Details.cshtml" />
     <None Include="Areas\Portal\Views\Offers\OfferTemplates\list.cshtml" />
     <Content Include="Content\bootstrap-responsive.css" />
     <Content Include="Content\bootstrap.css" />
@@ -283,6 +285,8 @@
     <Content Include="img\initializer\categories\icon-subsc.png" />
     <Content Include="img\initializer\categories\ikonatest.png" />
     <Content Include="img\initializer\companies\insert-logo.png" />
+    <Content Include="img\initializer\offers\landscape.jpg" />
+    <Content Include="img\initializer\offers\sofa.jpg" />
     <Content Include="img\logo-min.png" />
     <Content Include="img\lupa.png" />
     <Content Include="img\offers\icon-2.png" />
@@ -339,6 +343,8 @@
     <Content Include="Areas\Portal\Views\Offers\_Partials\_Pager.cshtml" />
     <Content Include="Areas\Portal\Views\Offers\_Partials\_Breadcrumbs.cshtml" />
     <Content Include="connections.config" />
+    <Content Include="Areas\Portal\Views\Offers\_Details\_Company.cshtml" />
+    <Content Include="Areas\Portal\Views\Offers\_Details\_Address.cshtml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

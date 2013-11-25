@@ -18,9 +18,9 @@ namespace Abon.Database.Mappings.Portal
                 .HasForeignKey(el => el.CompanyId)
                 .WillCascadeOnDelete(true);
 
-            HasOptional(el => el.Image)
+            HasRequired(el => el.Logo)
                 .WithMany(el => el.OffersByImage)
-                .HasForeignKey(m => m.ImageId)
+                .HasForeignKey(m => m.LogoId)
                 .WillCascadeOnDelete(true);
 
             HasOptional(el => el.CompanyLogo)

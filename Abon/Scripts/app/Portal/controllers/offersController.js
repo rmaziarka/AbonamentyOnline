@@ -1,5 +1,5 @@
 ﻿controllerModule
-    .controller('offersController', ['$scope', 'scopeHelper', 'offersService', function($scope, helper, service) {
+    .controller('offersController', ['$scope', 'scopeHelper', 'offersService', function ($scope, helper, service) {
 
         helper.addDataToScope($scope, 'userOffersData');
             
@@ -35,6 +35,9 @@
             $scope.template = view;
         }
 
+        $scope.goToDetails = function (id) {
+            window.location = '/offers/details?id=' + id;
+        }
 
         function prepareSearchParams() {
             var params = {

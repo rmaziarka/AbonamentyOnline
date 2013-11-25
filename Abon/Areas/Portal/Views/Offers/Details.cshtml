@@ -1,0 +1,66 @@
+@model Abon.Dto.Portal.Home.OfferDetailsDto
+@{
+    ViewBag.Title = "Oferta " + Model.Name;
+}
+
+    <fieldset>
+    	<legend>OfferDetailsDto</legend>
+    	<dl>
+
+            <img src="@Model.Logo.Path" />
+
+    		<dt>
+    			@Html.DisplayNameFor(model => model.Name)
+    		</dt>
+    
+    		<dd>
+    			@Html.DisplayFor(model => model.Name)
+    		</dd>
+    
+    		<dt>
+    			@Html.DisplayNameFor(model => model.Description)
+    		</dt>
+    
+    		<dd>
+    			@Html.DisplayFor(model => model.Description)
+    		</dd>
+    
+    		<dt>
+    			@Html.DisplayNameFor(model => model.ProducerPrice)
+    		</dt>
+    
+    		<dd>
+    			@Html.DisplayFor(model => model.ProducerPrice)
+    		</dd>
+    
+    		<dt>
+    			@Html.DisplayNameFor(model => model.OurPrice)
+    		</dt>
+    
+    		<dd>
+    			@Html.DisplayFor(model => model.OurPrice)
+    		</dd>
+    
+    		<dt>
+    			@Html.DisplayNameFor(model => model.Saving)
+    		</dt>
+    
+    		<dd>
+    			@Html.DisplayFor(model => model.Saving)
+    		</dd>
+    
+    		<dt>
+    			@Html.DisplayNameFor(model => model.CreateDate)
+    		</dt>
+    
+    		<dd>
+    			@Html.DisplayFor(model => model.CreateDate)
+    		</dd>
+            @foreach (var image in Model.Images)
+            {
+                <img src="@image.Path"/>            
+            }
+
+            @Html.Partial("_Details/_Company",Model.Company)
+    	</dl>
+    </fieldset>

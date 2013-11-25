@@ -56,11 +56,13 @@
     <Compile Include="Initializers\Portal\AddressInitializer.cs" />
     <Compile Include="Initializers\Portal\CompanyInitializer.cs" />
     <Compile Include="Initializers\Portal\ImageInitializer.cs" />
+    <Compile Include="Initializers\Portal\OfferImageInitializer.cs" />
     <Compile Include="Initializers\Portal\OfferInitializer.cs" />
+    <Compile Include="Mappings\Portal\AddressMapping.cs" />
     <Compile Include="Mappings\Portal\CategoryMapping.cs" />
     <Compile Include="Mappings\Portal\CityMapping.cs" />
-    <Compile Include="Mappings\Portal\AddressMapping.cs" />
     <Compile Include="Mappings\Portal\CompanyMapping.cs" />
+    <Compile Include="Mappings\Portal\OfferImageMapping.cs" />
     <Compile Include="Mappings\Portal\ImageMapping.cs" />
     <Compile Include="Mappings\Portal\OfferMapping.cs" />
     <Compile Include="Mappings\Portal\UserLoginMapping.cs" />

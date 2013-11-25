@@ -25,7 +25,8 @@ namespace Abon.Database.Initializers.Portal
                        Email = "kontakt@insert.com.pl",
                        Nip = "111111111",
                        Phone = "555 666 777",
-                       Regon = "123123123321"
+                       Regon = "123123123321",
+                       ShowAddressInOffers = true
                     }
                };
 

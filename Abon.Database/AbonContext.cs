@@ -20,7 +20,8 @@ namespace Abon.Database
         public virtual IDbSet<City> Cities { get; set; }
         public virtual IDbSet<Image> Images { get; set; }
         public virtual IDbSet<Address> Addresses { get; set; }
-        public virtual IDbSet<Company> Companies{ get; set; }
+        public virtual IDbSet<Company> Companies { get; set; }
+        public virtual IDbSet<OfferImage> OfferImages { get; set; }
 
         public AbonContext()
         {
@@ -43,6 +44,7 @@ namespace Abon.Database
             modelBuilder.Configurations.Add(new ImageMapping());
             modelBuilder.Configurations.Add(new AddressMapping());
             modelBuilder.Configurations.Add(new CompanyMapping());
+            modelBuilder.Configurations.Add(new OfferImageMapping());
             base.OnModelCreating(modelBuilder);
         }
     }
